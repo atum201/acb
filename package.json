@@ -1,0 +1,46 @@
+{
+  "name": "acb-game---confetti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/masuke/acb-game---confetti.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/masuke/acb-game---confetti/issues"
+  },
+  "homepage": "https://gitlab.com/masuke/acb-game---confetti#readme",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-decoupled-document": "^12.2.0",
+    "@tinymce/tinymce-react": "^3.2.0",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "exceljs": "^1.12.1",
+    "express": "~4.16.0",
+    "express-fileupload": "^1.1.3-alpha.2",
+    "image-size": "^0.7.2",
+    "jimp": "^0.6.4",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.3",
+    "mongoose-paginate-v2": "^1.0.16",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.1",
+    "npm": "^6.9.0",
+    "soap": "^0.27.1",
+    "socket.io": "^2.2.0"
+  }
+}

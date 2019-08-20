@@ -1,0 +1,26 @@
+.card-apartment-detail {
+  min-height: 800px;
+  .apartment-name {
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .apartment-desc{
+    padding: 10px 0;
+  }
+
+  .desc-group{
+    padding: 10px;
+  }
+
+  .desc-label{
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .desc-content{
+    font-size: 16px;
+  }
+
+
+}

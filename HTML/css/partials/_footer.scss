@@ -1,0 +1,66 @@
+/*
+
+	Footer
+
+ */
+
+
+
+.footer{
+	background-color: $main;
+	background-image:linear-gradient(to left, $main, $three);
+	padding: 20px 0px;
+	position: relative;
+	.logo{
+		display: inline-block;
+		margin-right: 20px;
+		img{
+			height: 30px;
+		}
+	}
+	.social{
+		display: inline-block;
+		.btn{
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			line-height: 30px;
+			text-align: center;
+			background: #fff;
+			color: $main;
+			padding: 0px;
+			margin: 0px 5px;
+			.fa{
+				line-height: 30px;
+			}
+			&:hover{
+				background: $main;
+				color: #fff;
+			}
+		}
+	}
+	.menus{
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		text-align: center;
+		top: 0px;
+		a{
+			display: inline-block;
+			padding: 7px 20px;
+			color: #fff;
+			&:hover{
+				color: $three;
+			}
+		}
+	}
+	@media (max-width: 768px){
+		text-align: center;
+		.social{
+			margin-bottom: 10px;
+		}
+		.menus{
+			position: relative;
+		}
+	}
+}

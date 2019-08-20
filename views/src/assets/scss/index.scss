@@ -1,0 +1,198 @@
+@font-face {
+  font-family: "Effra_Std_Bdn";
+  src: local("Effra_Std_Bdn"), url("../fonts/Effra_Std_Bdn.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Effra_Std_Ltn";
+  src: local("Effra_Std_Ltn"), url("../fonts/Effra_Std_Ltn.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Effra_Std_Rgn";
+  src: local("Effra_Std_Rgn"), url("../fonts/Effra_Std_Rgn.ttf") format("opentype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Effra_Std_Rgn";
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+}
+h1,h2{
+  font-family: "Effra_Std_Bdn";
+  margin-bottom: 10px;
+}
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+  width: 100%;
+  border: #c4c4c4 solid 1px;
+}
+.errorMessageUI{
+  color: red;
+}
+.submit_login_cms{
+  background: #C9DD03!important;
+  color:#002395!important;
+}
+.btn-warning {
+  color: #ffb236;
+  border-color: #ffb236;
+  background-color: transparent;
+  height: 1.9rem;
+  padding: 0px 15px 0px 15px!important;
+}
+.btn-sm{
+  height: 1.875rem;
+  min-width: 1.875rem;
+  width: 1.875rem;
+
+}
+.btn_question{
+  color: white!important;
+  border-color: #ffb236!important;
+  background-color: #002395!important;
+  height: 1.9rem!important;
+  padding: 0px 15px 0px 15px!important;
+}
+.btn_done{
+  color: white!important;
+  border-color: #ffb236!important;
+  background-color: #18ce0f!important;
+  height: 1.9rem!important;
+  padding: 0px 15px 0px 15px!important;
+}
+.btn-simple {
+  border: 1px solid;
+  border-color: #888;
+  padding: 10px 22px;
+  background-color: transparent;
+}
+.sidebar .logo .logo-img{
+  background: white!important;
+  border-radius: 15px!important;
+}
+.sidebar .logo .logo-img img{
+  max-width: 80%!important;
+}
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+//     monospace;
+// }
+.logo_page {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+}
+.medal_cd_ {
+  position: absolute;
+  top: 10%;
+  right: 7%;
+  z-index: 9999!important;
+}
+#inputUSer{
+  border-bottom: 1px solid #888!important;
+  border-radius:initial!important;
+ 
+  background: initial!important;
+  &:focus {
+    border: none!important;
+    border-bottom: 1px solid #888!important;
+  }
+}
+.medal_cd{
+  max-width: 100%;
+  height: auto;
+}
+.logo_bottom_ {
+  position: fixed;
+  bottom:0;
+  left: 0;
+  transform: translate(-26%, 50%);
+}
+.announ-header.row{
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.13);
+  margin-bottom: 5px!important;
+}
+.logo_bottom{
+  max-width: 50%;
+  height: auto;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+%gradient_line_gradient_dotted {
+  height: 1px;
+  margin-top: 15px;
+  padding-bottom: 20px;
+  background-image: linear-gradient(to right,#002395 40%, #f0f0f0 20%);
+  background-position: top;
+  background-size: 10px 1px, 1px 10px;
+  background-repeat: repeat-x;
+}
+%gradient_line_border {
+  background: linear-gradient(90deg, var(--border-color) 100%, transparent 100%) top left no-repeat,
+    linear-gradient(
+        90deg,
+        transparent calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)),
+        transparent calc(var(--gap-size) / 2 + var(--dash-size))
+      )
+      top center repeat-x,
+    linear-gradient(90deg, var(--border-color) 100%, transparent 100%) top right no-repeat,
+    linear-gradient(0deg, var(--border-color) 100%, transparent 100%) top left no-repeat,
+    linear-gradient(
+        0deg,
+        transparent calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)),
+        transparent calc(var(--gap-size) / 2 + var(--dash-size))
+      )
+      center left repeat-y,
+    linear-gradient(0deg, var(--border-color) 100%, transparent 100%) bottom left no-repeat,
+    linear-gradient(90deg, var(--border-color) 100%, transparent 100%) bottom left no-repeat,
+    linear-gradient(
+        90deg,
+        transparent calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)),
+        transparent calc(var(--gap-size) / 2 + var(--dash-size))
+      )
+      bottom center repeat-x,
+    linear-gradient(90deg, var(--border-color) 100%, transparent 100%) bottom right no-repeat,
+    linear-gradient(0deg, var(--border-color) 100%, transparent 100%) top right no-repeat,
+    linear-gradient(
+        0deg,
+        transparent calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2),
+        var(--border-color) calc(var(--gap-size) / 2 + var(--dash-size)),
+        transparent calc(var(--gap-size) / 2 + var(--dash-size))
+      )
+      center right repeat-y,
+    linear-gradient(0deg, var(--border-color) 100%, transparent 100%) bottom right no-repeat;
+  background-size: var(--dash-size) var(--border-weight), calc(var(--dash-size) + var(--gap-size)) var(--border-weight),
+    var(--dash-size) var(--border-weight), var(--border-weight) var(--dash-size),
+    var(--border-weight) calc(var(--dash-size) + var(--gap-size)), var(--border-weight) var(--dash-size);
+}
+
+@import "./mixins";
+@import "./variables";
+
+@import "./inputs";
+@import "./buttons";
+
+@import "./views/views-login";
+@import "./views/views-countdown";
+@import "./views/_respoinsive_countdown";
+@import "./views/_views_game";
+@import "./views/_view_finalloading";
+@import "./views/_respoinsive_views_game";
+@import "./views/_respoinsive_login";
+@import "./views/_views_popup";
+@import "./views/_views_listwinner";
+@import "./views/views-sidebar.scss";
+@import "./_loader";
+@import "./pagination";
+@import "./_header.scss";

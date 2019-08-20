@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_653" width="35.492" height="35.492" data-name="Group 653" viewBox="0 0 35.492 35.492">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-2{fill:#002395}.cls-3{stroke:#002395;stroke-width:2px}.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="Group_650" data-name="Group 650">
+        <g id="ic_share_black_24px" transform="translate(4.259 5.679)">
+            <path id="Path_5" d="M0 0h24.4v24.4H0z" class="cls-1" data-name="Path 5"/>
+            <path id="Path_6" d="M16.554 15.336a2.567 2.567 0 0 0-1.771.729l-6.443-3.93a3.242 3.242 0 0 0 .081-.663 3.242 3.242 0 0 0-.081-.663l6.371-3.893a2.634 2.634 0 0 0 1.843.767 2.775 2.775 0 0 0 2.711-2.842 2.714 2.714 0 1 0-5.422 0 3.242 3.242 0 0 0 .081.663L7.554 9.4a2.634 2.634 0 0 0-1.843-.77A2.775 2.775 0 0 0 3 11.472a2.775 2.775 0 0 0 2.711 2.842 2.634 2.634 0 0 0 1.843-.767l6.434 3.94a2.794 2.794 0 0 0-.072.616 2.642 2.642 0 1 0 2.639-2.766z" class="cls-2" data-name="Path 6" transform="translate(1.066 .711)"/>
+        </g>
+        <g id="Ellipse_28" class="cls-3" data-name="Ellipse 28">
+            <circle cx="17.746" cy="17.746" r="17.746" class="cls-4"/>
+            <circle cx="17.746" cy="17.746" r="16.746" class="cls-1"/>
+        </g>
+    </g>
+</svg>

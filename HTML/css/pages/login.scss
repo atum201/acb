@@ -1,0 +1,103 @@
+.login-wrapper{
+	background: #A7DCF8;
+	min-height: calc(100vh - 60px);
+	.image{
+		img{
+			min-height: calc(100vh - 60px);
+			width: 100%;
+			object-fit:cover;	
+		}
+		
+
+	}
+	.box-form{
+		max-width: 420px;
+		margin: 30px auto;
+		background: #fff;
+		border-radius: 7px;
+		padding: 40px 30px;
+
+	}
+	.head{
+		font-size: 25px;
+		font-weight: bold;
+		color: $main;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	.openid{
+		.btn{
+			border-color: #ccc;
+			margin-bottom: 10px;
+			.icon{
+				margin-right: 5px;
+			}
+			&:hover{
+				border-color: $main;
+			}
+		}
+	}
+	.or{
+		display: block;
+		position: relative;
+		text-align: center;
+		margin:20px 0px;
+		color: #999999;
+		&:before{
+			height: 1px;
+			content: "";
+			position: absolute;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			top: 0px;
+			background: #E6E6E6;
+			margin:auto;
+		}
+		.txt{
+			display: inline-block;
+			padding: 5px 10px;
+			background: #fff;
+			position: relative;
+			z-index: 2;
+		}
+	}
+	.btn{
+		width: 100%;
+		border-radius: 8px;
+		padding: 11px 20px;
+		height: 48px;
+
+	}
+	.btn-main{
+		font-size: 16px;
+	}
+	.form-control{
+		height: 48px;
+		box-shadow: none;
+		border-radius: 8px;
+		&:focus{
+			border-color: #FAC001;
+		}
+
+	}
+	.forget{
+		display: block;
+		padding: 10px 0px;
+		color: #7E7E7E;
+		&:hover{
+			color: $main;
+		}
+	}
+	.note{
+		margin-top: 20px;
+		text-align: center;
+		.link{
+			font-weight: bold;
+			color: $main;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}

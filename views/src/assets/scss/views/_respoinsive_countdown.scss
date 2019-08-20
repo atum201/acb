@@ -1,0 +1,96 @@
+@media (max-width: 1024px) {
+  .show_more_info{
+    padding-top: 5%;
+  }
+  .logo_bottom {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .logo_page,
+  .medal_cd_ {
+    top: 8% !important;
+  }
+  .medal_cd_ {
+    right: 0% !important;
+  }
+  .form_count_form {
+    padding-top: 10% !important;
+  }
+  .img_acb,
+  .medal_cd {
+    width: 80% !important;
+  }
+  .show_more_info{
+    padding-top: 12%;
+  }
+}
+@media (max-width: 576px) {
+  .view_countdown .live_per_wc .livePer p{
+    margin-top: 15px!important;
+  }
+  .button_submit_login {
+    margin-top: initial!important;
+    padding: 3% 5%!important;
+  }
+  .view_countdown {
+    height: 100% !important;
+    background-image: none !important;
+    margin-top: 5%!important;
+  }
+  .show_more_info {
+    z-index: 999 !important;
+    width: 100% !important;
+    margin: 20% 0px 15% 0px !important;
+  }
+  .show_more_polygon,
+  .polygon_more {
+    z-index: 999 !important;
+  }
+
+  .logo_page{
+display: none;
+  }
+  .medal_cd_ {
+    position: absolute;
+    right: -2% !important;
+    top: 0% !important;
+  }
+  .form_count_form {
+    padding-top: 10% !important;
+    // height: 100vh !important;
+  }
+  .form_countdown {
+    &:after {
+      // height: 100vh !important;
+    }
+  }
+  .form_countdown .box_count_down {
+    display: initial !important;
+    transform: translateY(10%) !important;
+    -webkit-transform: translateY(10%) !important;
+    .b_l_countdown {
+      width: 95% !important;
+      margin: 0 auto !important;
+    }
+    .b_r_countdown {
+      width: 95% !important;
+      margin: 12px auto auto auto !important;
+    }
+  }
+}
+@media (max-width: 348px) {
+
+  .show_more_info {
+    margin: 45% 0px 15% 0px !important;
+}
+
+}
+@media (max-width: 284px) {
+  .show_more_info {
+    margin: 50% 0px 15% 0px !important;
+}
+.view_countdown{
+  padding-top: 25%!important;
+}
+}

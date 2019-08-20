@@ -1,0 +1,35 @@
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1060;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: white;
+    display: table;
+  }
+  
+  .preloader-logo {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-animation-name: preloader;
+    // -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: preloader;
+    // animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  @-webkit-keyframes preloader {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+  }
+  
+  @keyframes preloader {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+  }

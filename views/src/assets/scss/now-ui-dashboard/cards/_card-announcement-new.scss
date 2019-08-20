@@ -1,0 +1,66 @@
+.card-announcement-new{
+    padding: 20px 40px;
+
+// SCSS of announcement
+    .announ-header{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .announ-create-at{
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    .announ-content{
+        color: #000000;
+    }
+    .announ-by-author{
+        text-align: right !important;
+    }
+    .col-btn{
+        margin-top: 50px;
+        text-align: center;
+    }
+    .myBtn{
+        background: transparent;
+        color: black;
+        font-size: 14px;
+    }
+    .redBtn{
+        color: #D0021B;
+        border: 1px solid #D0021B;
+        margin-right: 7px;
+    }
+    .blueBtn{
+        color: #2C51A3;
+        border: 1px solid #2C51A3;
+    }
+    .greenBtn{
+        color: #69BA11;
+        border: 1px solid #69BA11;
+    }
+
+// SCSS of Notication 
+    .not-padding-left{
+        padding-left: 0px;
+    }
+
+    .pt-15{
+        padding-top: 15px;        
+    }
+
+    .not-padding-right{
+        padding-right: 0px;
+    }
+
+// SCSS of Promtion
+    .pictureBtn{
+        margin-top: 30px;
+        padding: 10px 20px;
+        max-width: 120px;
+        color: #FF8200;
+        border: 1px solid #FF8200;
+        background: transparent;
+    }
+}

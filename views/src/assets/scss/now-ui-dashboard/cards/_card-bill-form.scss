@@ -1,0 +1,19 @@
+.card-bill-form {
+  .card-title {
+    color: #4E95EA;
+  }
+  .bill-item {
+    border-bottom: 1px solid #9B9B9B;
+    padding: 10px 0;
+    .bill-number {
+      .col-md-3, .col-md-4 {
+        margin-bottom: 10px;
+        padding-right: 5px;
+      }
+    }
+  }
+  .openning-balance {
+    font-weight: normal;
+    color: #9B9B9B;
+  }
+}

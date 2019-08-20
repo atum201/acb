@@ -1,0 +1,13 @@
+.card-no-permission {
+  height: 450px;
+
+  .card-body {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    font-weight: bold;
+    justify-content: center;
+    font-style: italic;
+  }
+}

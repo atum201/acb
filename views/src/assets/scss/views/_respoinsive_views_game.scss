@@ -1,0 +1,110 @@
+.view-game {
+  @media (max-width: 768px) {
+    .game-container {
+      width: 95%;
+    }
+    .mess_info {
+      max-width: 60%;
+      .girl_mess {
+        display: none;
+      }
+      .img_fixed {
+        width: 70%;
+      }
+      .box_content {
+        top: 30%;
+        h2 {
+          width: 85%;
+          font-size: 13px;
+        }
+        p {
+          display: none;
+        }
+      }
+    }
+    .ruler_wc_mb{
+      width: 90%!important;
+      margin: 0 auto;
+      .ruler_wc_tab_mb{
+        width: 100%!important;
+      }
+      .b_r_active_mb{
+        width: 100%!important;
+      }
+    }
+    ._mstimer{
+      transform: translate(-28%, -118%);
+      right: 35%;
+    }
+    ._line_level {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 7%;
+      #milestone-ruler {
+        width: 108%;
+        font-size: 13px;
+      }
+    }
+    .milestone-pointer {
+      height: 1px !important;
+      top: 52%;
+    }
+  }
+  @media (max-width: 426px) {
+    .active_users {
+      font-size: 13px;
+    }
+    .question-detail {
+      font-size: 13px;
+      padding: 5px 11px !important;
+    }
+    .img_fixed {
+      width: 100% !important;
+    }
+    ._mstimer{
+      transform: translate(-28%, -110%)!important;
+      right: 10%;
+    }
+  }
+  @media (max-width: 561px) {
+    .active_users {
+      font-size: 12px !important;
+      padding:3% 0px 0px 5%;
+      .b_l_active_users {
+        float: none !important;
+        width: 100% !important;
+      }
+      .b_r_active_users {
+        float: none !important;
+        width: 100% !important;
+        p {
+          text-align: initial !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    .mess_info{
+      .box_content{
+        h2{
+          font-size: 11px;
+        }
+      }
+    }
+    .logo_page{
+      display: none;
+    }
+    .milestone-pointer {
+      height: 1px !important;
+      top: 55%;
+    }
+  }
+  @media (max-width: 320px) {
+    .box_content {
+      h2 {
+        width: 100%;
+      }
+  }
+}
+}

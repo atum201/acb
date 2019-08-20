@@ -1,0 +1,178 @@
+.view_login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .bg_login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .min_width_page {
+    max-width: 1366px;
+    margin: 0 auto;
+  }
+  .img_form,
+  .img_acb {
+    max-width: 100%;
+    height: auto;
+  }
+  .img_form {
+    width: 80%;
+    height: auto;
+  }
+  .img_acb {
+    margin: 5% 0px 0px 5%;
+  }
+  .form_login {
+    display: flex;
+    align-items: center;
+    height: 309px;
+    width: 532px;
+    background-color: #002395;
+    margin: 0 auto;
+    border-radius: 10px;
+    //hander border form login
+    --border-color: #c9dd03;
+    --border-weight: 1px;
+    --dash-size: 6px;
+    --gap-size: 6px;
+    position: relative;
+    .img_form {
+      z-index: 999 !important;
+      position: absolute;
+      right: 0;
+      left: -50%;
+      top: 0%;
+      left: 50%;
+      top: 0%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    &:hover {
+      --border-color: #c9dd03;
+      --border-weight: 1px;
+      --dash-size: 5px;
+      --gap-size: 4px;
+    }
+    &:after {
+      transition: all 0.6s ease;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 10px;
+      @extend %gradient_line_border;
+    }
+    //end hander border form login
+    .handle_login_wp {
+      padding-top: 10%;
+      width: 100%;
+      z-index: 888 !important;
+    }
+  
+    input {
+      border: 0px;
+      border-radius: 10px;
+      height: 38px;
+      padding: 0px 0px 0px 6%;
+      &::placeholder {
+        color: #002395;
+        font-size: 15px;
+        
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+ 
+    .handle_login {
+      width: 70%;
+      margin: 0 auto;
+    }
+    input#email {
+      margin-bottom: 3%;
+    }
+    label.title_login {
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      color: #ffffff;
+      text-transform: uppercase;
+      position: relative;
+      &:after {
+        --border-color: #c9dd03;
+        --border-weight: 2px;
+        --dash-size: 7px;
+        --gap-size: 5px;
+        transition: all 0.6s ease;
+        content: "";
+        position: absolute;
+        padding-left: 10px;
+        height: 1px;
+        top: 50%;
+        width: 33%;
+        margin-left: 15px;
+        @extend %gradient_line_border;
+      }
+      &:before {
+        --border-color: #c9dd03;
+        --border-weight: 2px;
+        --dash-size: 7px;
+        --gap-size: 5px;
+        transition: all 0.6s ease;
+        content: "";
+        position: absolute;
+        padding-left: 10px;
+        height: 1px;
+        top: 50%;
+        width: 33%;
+        left: 0;
+        margin-right: 15px;
+        @extend %gradient_line_border;
+      }
+    }
+
+    .button_submit_login {
+      background: #c9dd03;
+      position: relative;
+      border-radius: 5px;
+      font-size: 15px;
+      color: #002395;
+      border: none;
+      display: block;
+      margin: 0 auto;
+      margin-top: 10%;
+      padding: 5px 15px;
+      &:focus{
+        background: red;
+        color: white;
+        border:white solid 1px;
+        background-color:#002395;
+      }
+    &:hover{
+      cursor: pointer;
+  animation: jelly 0.5s;
+    }
+    @keyframes jelly {
+      0%,
+      100% {
+        transform: scale(1, 1);
+      }
+      25% {
+        transform: scale(0.9, 1.1);
+      }
+      50% {
+        transform: scale(1.1, 0.9);
+      }
+      75% {
+        transform: scale(0.95, 1.05);
+      }
+    }
+    }
+  }
+}

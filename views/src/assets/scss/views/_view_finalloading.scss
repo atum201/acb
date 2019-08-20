@@ -1,0 +1,275 @@
+.view_winner_loading{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    p,h4{
+        font-size: 20px;
+        color: #002395;
+        font-family: "Effra_Std_Bdn";
+        @media (max-width: 425px) {
+            font-size: 17px!important;
+        }
+    }
+    p{
+        margin: 5% 0px;
+     
+    }
+    h4{
+        margin: 5% 0px 10% 0px;
+        font-family: "Effra_Std_Rgn";  
+        
+    }
+    .bn_win, .cup_black{
+        max-width: 100%;
+        height: auto;
+    }
+    button{
+        background-color: #002395;
+        font-family: "Effra_Std_Bdn";
+        font-size: 15px;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        padding: 3% 0%;
+        width: 45%;
+        border-radius: 10px;
+        @media (max-width: 425px) {
+            font-size: 12px;
+        }
+    }
+    .dv_ig{
+        position: relative;
+        .dv_b_monney{
+            position: absolute;
+            top: 7%;
+            left: 16%;
+            transform: translate(50%,50%);
+            font-size: 22px;
+            font-family: "Effra_Std_Bdn";
+            color: #002395;
+            -webkit-transform: translate(26%, 9%);
+            transform: translate(26%, 9%);
+            @media (max-width: 425px) {
+                font-size: 16px;
+                top: 7%;
+                left: 20%;
+            }
+            @media (max-width: 375px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+// effect
+$particles: 50;
+$width: 500;
+$height: 500;
+
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+               random($width)-$width / 2 + px
+               random($height)-$height / 1.2 + px
+               hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff
+}
+@mixin keyframes ($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation-delay ($settings) {
+    -moz-animation-delay: $settings;
+    -webkit-animation-delay: $settings;
+    -o-animation-delay: $settings;
+    -ms-animation-delay: $settings;
+    animation-delay: $settings;
+}
+
+@mixin animation-duration ($settings) {
+    -moz-animation-duration: $settings;
+    -webkit-animation-duration: $settings;
+    -o-animation-duration: $settings;
+    -ms-animation-duration: $settings;
+    animation-duration: $settings;
+}
+
+@mixin animation ($settings) {
+    -moz-animation: $settings;
+    -webkit-animation: $settings;
+    -o-animation: $settings;
+    -ms-animation: $settings;
+    animation: $settings;
+}
+
+@mixin transform ($settings) {
+    transform: $settings;
+    -moz-transform: $settings;
+    -webkit-transform: $settings;
+    -o-transform: $settings;
+    -ms-transform: $settings;
+}
+
+
+.view_winner_loading > .before, .view_winner_loading > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: $box-shadow2;
+  @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
+}
+    
+.view_winner_loading > .after {
+  @include animation-delay((1.25s, 1.25s, 1.25s));
+  @include animation-duration((1.25s, 1.25s, 6.25s));
+}
+        
+@include keyframes(bang) {
+  to {
+    box-shadow:$box-shadow;
+  }
+}
+    
+@include keyframes(gravity)  {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}
+    
+@include keyframes(position) {
+  0%, 19.9% {
+    margin-top:1%;
+  }
+  20%, 39.9% {
+    margin-top: 5%;
+  }
+  40%, 59.9% {  
+    margin-left: 6%
+  }
+  60%, 79.9% {  
+    margin-top: 3%;
+  }
+  80%, 99.9% {  
+    margin-top: 5%;
+  }
+}
+
+//end effect
+.logo_page_c{
+    position: absolute;
+  top: 14%;
+  left: 7%;
+}
+.logo_bottom_c{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        -webkit-transform: translate(-35%, 50%);
+        transform: translate(-50%, 50%);
+}
+.popuperwinner{
+    position: fixed;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% 75%;
+    z-index: 9999!important;
+    .pendding1{
+        max-width: 100%;
+        height: auto;
+    }
+   
+    .popup_container{
+        position: relative;
+        .dv_ig,.dv_ig2,.dv_ig3{
+            position: absolute;
+            top: 7%;
+            left: 28%;
+            width: 55%;
+            transform: translate(50%,50%);
+            font-size: 22px;
+            font-family: "Effra_Std_Bdn";
+            color: #002395;
+            -webkit-transform: translate(26%, 9%);
+            transform: translate(26%, 9%);
+            p {
+                font-size: 21px;
+                font-family: "Effra_Std_Bdn";
+                color: #002395;
+            }
+            // @media (max-width: 425px) {
+            //     font-size: 16px;
+            //     top: 7%;
+            //     left: 20%;
+            // }
+            // @media (max-width: 375px) {
+            //     font-size: 14px;
+            // }
+        }
+        .dv_ig3{
+            top: 0%;
+            left: 31%;
+                .count_down{
+                    width: 90%;
+                    background-color: white;
+                    height: 80%;
+                    border-radius: 30px;
+                    .timer_pendding{
+                    font-size: 108px;
+                    font-family: "Effra_Std_Bdn";
+                    
+                }
+                }
+        }
+    }
+
+}
+@media (max-width: 425px) {
+    .popuperwinner .popup_container .dv_ig p, .popuperwinner .popup_container .dv_ig3 p {
+    font-size: 15px!important;
+    }
+    .popuperwinner .popup_container .dv_ig2 img {
+        width: 25%!important;
+        height: auto;
+    }
+    .popuperwinner .popup_container .dv_ig2 p {
+        font-size: 13px!important;
+    }
+    .popuperwinner .popup_container .dv_ig3 .count_down .timer_pendding {
+        font-size: 80px!important;
+    }
+}

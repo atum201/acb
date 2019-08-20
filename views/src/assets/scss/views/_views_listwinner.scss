@@ -1,0 +1,146 @@
+.view_list_winner {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 100% 95%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+  .logo_page_liswinner{
+    display: block;
+    position: fixed;
+    top: 2%;
+    right: 3%;
+    .img_acb{
+      max-width: 100%!important;
+      height: auto!important;
+    }
+
+  }
+  h3 {
+    font-size: 22px;
+    color: #002395;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Effra_Std_Bdn";
+  }
+  .nav_game {
+    width: 80%;
+    text-align: center;
+    margin: 30px auto 30px auto;
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      .swiper-button-prev {
+        position: absolute;
+        top: 44px;
+        left: 0;
+      }
+      .swiper-button-next {
+        position: absolute;
+        top: 44px;
+        right: 2px;
+      }
+      .swiper-wrapper {
+        padding: 22px 0px;
+        padding-left: initial;
+      margin: 0;
+        .swiper-slide {
+          text-align: center;
+          margin: 0 auto;
+        font-size: 18px;
+        background: #fff;
+        width: 100%;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+          a.txt_ctv {
+            color: #002395;
+            font-family: "Effra_Std_Bdn";
+            font-size: 22px;
+            text-transform: uppercase;
+            color: #acacac;
+          }
+          a.txt_ctv.active {
+            color: #002395;
+            font-family: "Effra_Std_Bdn";
+            font-size: 22px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    //         a.active{
+    //             color: #002395;
+    //         }
+  }
+  .list_infowinner {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+    .list {
+      width: 50%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      .u_name {
+        background: #4285f4;
+        border-radius: 10px;
+        color: #fff;
+        border: none;
+        font-family: "Effra_Std_Bdn";
+        font-size: 17px;
+        text-align: initial;
+        text-transform: uppercase;
+        width: 68%;
+        display: inline-block;
+        margin-right: 2%;
+        padding: 5px 0px 5px 30px;
+      }
+      .u_point {
+        background: #b6c900;
+        border-radius: 10px;
+        color: #002395;
+        border: none;
+        font-size: 17px;
+        font-family: "Effra_Std_Rgn";
+        width: 20%;
+        display: inline-block;
+        padding: 5px 0px 5px 0px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .view_list_winner {
+    padding-top: 15% !important;
+    .list {
+      width: 100% !important;
+      .u_name {
+        width: 58%!important;
+      }
+      .u_point {
+        width: 40%!important;
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .list_infowinner {
+    width: 100% !important;
+  }
+  .view_list_winner {
+    padding-top: 20% !important;
+  }
+}

@@ -1,0 +1,19 @@
+.view_login{
+    @media (max-width: 425px) {
+        .form_login{
+            width: 396px;
+            .button_submit_login {
+                margin-top: 5%!important;
+            }
+            .handle_login {
+                width: 89%!important;
+            }
+        }
+    }
+    @media (max-width: 375px) {
+        .form_login{
+            width: 300px;
+           
+        }
+    }
+}

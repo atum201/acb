@@ -1,0 +1,75 @@
+.card-announcement{
+    padding: 20px 15px;
+    .card-head{
+        font-size: 16px;
+    }
+    
+    .card-input{
+        width: 100%;
+        padding-top: 5px;
+    }
+
+    .card-btn{
+        width: 180px;
+        height: 30px;
+        color: #2C51A3;
+        border-color: #2C51A3;
+    }
+
+    .card-btn:hover{
+        background: #ffffff !important;
+        color: #2C51A3;
+        border-color: #2C51A3;
+        box-shadow: $box-shadow;
+    }
+
+    .card-btn2{
+        color: #D7275C;
+        border: 1px solid #D7275C;
+        float:right;
+        text-align: center !important;
+        padding: 5px 20px;
+        border-radius: 5px;
+    }
+
+    .card-btn2:hover{
+        background: #ffffff !important;
+        color: #D7275C;
+        border: 1px solid #D7275C;
+        box-shadow: $box-shadow;
+        text-decoration: none;
+    }
+
+    .card-table{
+        padding: 0px 10px;
+    }
+
+    .mybtn{
+        color: #2C51A3;
+        border:1px solid #2C51A3; 
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .mybtn:hover{
+        background: #ffffff !important;
+        color: #2C51A3;
+        border-color: #2C51A3;
+        box-shadow: $box-shadow;
+    }
+
+    .card-thead {
+        font-size: 16px !important;
+        color: #D7275C !important;
+        font-weight: 500 !important;
+    }
+
+    table{
+        margin-top: 20px;
+    }
+
+    .card-paginate{
+        margin-top: 20px;
+    }
+}

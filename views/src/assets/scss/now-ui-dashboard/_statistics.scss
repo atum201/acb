@@ -1,0 +1,41 @@
+.customStatistics{
+    margin-top:20px;
+} 
+
+.col1{
+    padding:20px !important;
+}
+
+.col1:hover {
+    box-shadow: 0 5px 20px 0px #bcbab8 !important;
+}
+
+.col-right{
+    float: right;
+    text-align: right;
+}
+
+.text-col-right{
+    font-size: 28px;
+}
+
+.text-col-right2{
+    font-size: 14px;
+}
+
+.col-left{
+    width: 65px;
+    height: 65px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    float:left;
+    text-align: center;
+    line-height: 65px;
+    font-size: 1.4em;
+}
+
+@media (min-width: 992px){
+    .w20{
+        max-width: 20%;
+    }
+}

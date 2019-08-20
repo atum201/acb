@@ -1,0 +1,379 @@
+@import 
+"partials/fonts",
+"partials/reset",
+"partials/mixin",
+"partials/helper",
+"partials/vars",
+"partials/footer",
+"partials/header";
+@import 
+"pages/home.scss",
+"pages/tin-tong-hop.scss",
+"pages/login.scss";
+
+/*style home*/
+
+*{
+    @include borderbox;
+}
+
+body {
+    font-family: 'Effra';
+    font-size: 15px;
+    line-height: 1.333;
+    background-color: #fff;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+}
+.overlay-common{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    background: rgba(#000,0.4);
+    right: 0px;
+    z-index: 29;
+    display: none;
+    &.show{
+        display: block;
+    }
+}
+.post-image{
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    img{
+        width: 100%;
+        opacity: 0;
+    }
+}
+.post-cat{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $main;
+    font-size:14px;
+    margin-bottom: 5px;
+    display: block;
+
+}
+.slick-arrow{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 3px;
+    border-color: $main;
+    color: $main;
+    font-size: 0px;
+    position: absolute;
+    top: 30%;
+    font-family:ap;
+    z-index: 10; 
+    &:before{
+        font-size: 20px;
+        content: "";
+    }
+    &:hover{
+        background: $main;
+        color: #fff;
+    }
+    &.slick-prev{
+        left: -50px;
+        &:before{
+            content: "\e110";
+        }
+    }
+    &.slick-next{
+        right: -50px;
+        &:before{
+            content: "\e111";
+        }
+    }
+
+}
+
+.slick-dots{
+    text-align: center;
+    margin-top: 20px;
+    li{
+        display: inline-block;
+        margin:0px 2px;
+
+    }
+    button{
+        background: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $main;
+        position: relative;
+        padding: 0px;
+        border: 0px;
+        font-size: 0px;
+
+    }
+    .slick-active{
+        button{
+            background: #fff;
+            border: 1px solid $main;
+            &:before{
+                content: "";
+                top: 1px;
+                bottom: 1px;
+                right: 1px;
+                left: 1px;
+                border-radius: 50%;
+                position: absolute;
+                background: $main;
+            }
+        }
+    }
+}
+.section{
+    padding: 40px 0px;
+    position: relative;
+}
+.box{
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.btn-readmore{
+    padding: 8px 20px;
+    background: $three;
+    color: #fff;
+    &:hover{
+        background: $main;
+        color: #fff;
+    }
+
+}
+.slick-slide{
+    height: auto;
+}
+.divider-gray{
+    border-top: 1px solid #ddd;
+    margin: 20px 0px;
+}
+.main-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: $main;
+    line-height: 32px;
+    display: block;
+    margin-bottom: 20px;
+    .icon{
+        margin-right: 5px;
+    }
+    .description{
+        margin: 15px 0px;
+        line-height: 24px;
+        font-size: 18px;
+        font-weight: normal;
+        color: #7e7e7e;
+    }
+}
+.post-title{
+    margin-bottom: 15px;
+    >a,>span{
+        display: block;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        
+        height: 44px;
+        overflow: hidden;
+    }
+}
+.post-content{
+    padding: 10px;
+}
+.main-title-sub{
+    font-size: 20px;
+    color: $main;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.btn{
+    padding: 10px 20px;
+    .icon{
+        margin:0px 3px;
+    }
+}
+.btn-main{
+    background: $main;
+    color: #fff;
+
+    &:hover{
+        background: $three;
+        color: #fff;
+    }
+}
+.post-description{
+    color: #999999;
+    line-height: 20px;
+    margin-bottom: 20px;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    .readmore{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        background: #fff;
+        padding-left: 10px;
+        color: #585858;
+        .icon{
+            margin:0px 3px;
+        }
+        &:hover{
+            color: $main;
+        }
+    }
+}
+.post-date{
+    color: #585858;
+}
+.select-custom {
+    position: relative;
+    font-size: 14px;
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border-radius: 0px;
+        box-shadow: none;
+        padding-right: 25px;
+    }
+    
+    &:before {
+        content: "\f107";
+        font-family: "FontAwesome";
+        position: absolute;
+        width: 0px;
+        top: 8px;
+        right: 20px;
+        pointer-events: none;
+        height: 0px;
+
+        color: #666;
+    }
+}
+.popup-box{
+    position: fixed;
+    bottom: 30px;
+    right: 0px;
+    z-index: 1000;
+    .btn-expand{
+        width: 60px;
+        background: none;
+        border: 0px;
+        outline: none;
+        height: 99px;
+        background-image: url(../images/btn-disabled.svg);
+    }
+    .box-content{
+        position: absolute;
+        background: #fff;
+        width: 370px;
+        border-radius: 8px;
+        overflow: hidden;
+        right: -100%;
+        visibility: hidden;
+        opacity: 0;
+        transition:all 0.3s ease;
+        bottom: 0px;
+        box-shadow: 0px 2px 7px rgba(#000,0.3);
+        .head{
+            padding: 10px;
+            font-size: 21px;
+            font-weight: bold;
+            background: $main;
+            color: #fff;
+        }
+
+    }
+    .tlrac{
+        width: 100%;
+        td{
+            padding: 8px 2px;
+            text-align: right;
+        }
+        .key{
+            white-space: nowrap;
+            color: #7E7E7E;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        .number{
+            font-size: 24px;
+            color: #489867;
+            border: 0px;
+            background: none;
+            width: 80px;
+            text-align: right;
+            border:1px solid transparent;
+            &:focus{
+                outline: none;
+                border:1px solid $main;
+            }
+        }
+    }
+    .select-custom{
+        .form-control{
+            border: none;
+            color: #489867;
+        }
+    }
+    .bottom{
+        td{
+            padding-top: 15px;
+            padding-bottom: 15px;
+           border-top: 1px solid $main; 
+        }
+        
+    }
+    .item{
+        cursor:pointer;
+        &.active{
+            .box-content{
+                visibility: visible;
+                opacity: 1;
+                transition:all 0.3s ease;
+                right: 66px;
+            } 
+            .btn-expand{
+                background-image: url(../images/btn-pop.svg);
+            }
+        }
+    }
+    .game-body{
+        padding: 20px;
+    }
+}
+.main{
+    color: $main !important;
+}
+
+.pagination{
+    >li{
+        margin-right: 5px;
+        >a,>span{
+            background: none;
+            border: 0px;
+            color: #999;
+            border-radius: 5px !important;
+
+        }
+        &.active{
+            >a{
+                background: #fff !important;
+                color: $main;
+            }
+        }
+    }
+}

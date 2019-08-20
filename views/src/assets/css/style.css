@@ -1,0 +1,193 @@
+.milestone-pointer::before{
+    content:url('../image/img_milestone.png'); 
+    position: absolute;
+    top: -6px;
+    right: -9px;
+  }
+  
+.myTitle{
+  font-size: 20px;
+  color: #2C2C2C;
+}
+
+.myTitle2{
+  font-size: 16px;
+  color: #2C2C2C;
+}
+
+.divLegend{
+  width: 130px;
+  height: 30px;
+  /* padding-top: 5px; */
+  line-height: 30px;
+  float: left;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.not-margin{
+  margin-right: 0px;
+}
+
+.divColor{
+  width: 15px;
+  height: 15px;
+  float:left;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.myTxt{
+  margin-left: 15px;
+}
+
+.myHeading{
+  margin-bottom: 25px;
+}
+
+.col-left2{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px;
+  font-size: 3em;
+}
+
+.myCol{
+  text-align: center;
+}
+
+.col-right{
+  /* margin-left: 20px; */
+}
+
+.myRow{
+  padding: 25px;
+}
+
+.colTxt{
+  color: #4E95EA;
+  font-size: 18px;
+  padding-top: 25px;
+  font-family: 'Montserrat';
+}
+
+.black18{
+  color: #4A4A4A;
+  font-size: 18px;
+}
+
+.green26{
+  color: #4E95EA;
+  font-size: 26px;
+}
+
+.red16{
+  color: #F26E98;
+  font-size: 16px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.amcharts-chart-div a {display:none !important;}
+
+.myButton2{
+  background: #FFFAFC !important;
+  color: #D7275C !important;
+  border: 1px solid #D7275C !important;
+  padding: 10px 20px !important;
+}
+
+.myButton2:hover{
+  background: #FFFAFC !important;
+  box-shadow: 0 7px 15px 0px #bcbab8 !important;
+}
+
+.myButton3{
+  color: #D7275C !important;
+  border: 1px solid #D7275C !important;
+  padding: 8px 15px !important;
+  margin-right: 8px !important;
+}
+
+.myButton3:hover, .myButton4:hover{
+  background: #FFFAFC !important;
+  box-shadow: 0 7px 15px 0px #bcbab8 !important;
+}
+
+.myButton4{
+  color: #2C51A3 !important;
+  border: 1px solid #2C51A3 !important;
+  padding: 8px 15px !important;
+}
+
+.myTable{
+  width: 97%;
+  margin: 0 auto;
+}
+
+.myTable tbody tr:hover{
+  box-shadow: 0 5px 15px 0px #bcbab8 !important;
+}
+
+.col-left3{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px;
+  font-size: 3em;
+}
+
+.myRow1{
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 5px 0px #dadada;
+}
+
+.myHead{
+  font-size: 16px !important;
+}
+
+.myColStyle{
+  padding-top: 12px;
+}
+
+.myCard{
+  background: #FAFAFA;
+  padding: 0 15px;
+  border: none;
+  box-shadow: none;
+}
+
+.cardcustom{
+  padding: 20px 15px;
+}
+.headerSwimPool{
+  padding: 10px 15px;
+}
+.headerSwimPool h1{
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #000000;
+}
+.headerSwimPool p{
+color: #878787;
+margin-bottom: 5px;
+font-weight: 400;
+font-size: 16px;
+}
+#inputAnswer{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  border-radius: 0;
+}
+#inputAnswer:focus { 
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}

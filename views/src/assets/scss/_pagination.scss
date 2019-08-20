@@ -1,0 +1,22 @@
+.pagination {
+  justify-content: center;
+  ul {
+    li {
+      display: inline;
+      margin: 0 10px;
+      border-radius: 50%;
+      padding: 4px 10px;
+      &.active, &:hover {
+        background-color: #ccc;
+      }
+
+      a {
+        color: black;
+        &:hover {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+}

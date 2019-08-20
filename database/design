@@ -1,0 +1,106 @@
+API backend
+	+ Express API: Cấu trúc chung của các route như template có trc: 
+		Post -> create
+		Put -> update
+		Delete -> delete
+		Get: /list /:id /s/:param (search)
+	Các route gồm:
+	- enterprise route
+	- news route
+	- event route
+	- fact route
+	- video route
+	- banner route
+
+	+ Socket API
+
+Model
+	user:{
+		user_id: String,
+    employeeID: String,
+    // name: String,
+    socketId: String,
+    username: String,
+    employeeNumber: String,
+    employeeType: String,
+    firstname: String,
+    lastname: String,
+    mail: String,
+    mobile: String,
+    title: String,
+    user: String,
+    department: String,
+
+    role: String
+	}
+	enterprise: {
+	 id: String,
+	 name: String,
+	 user: ref User,
+	 icon: String,
+	 address: String,
+	 phone: String,
+	 email: String,
+	 status: String,
+	 introdution:String
+	}
+	news:{
+		id:String,
+		title: String,
+		description: String,
+		content: String,
+		author: String
+		create_date: Date,
+		status: String
+	}
+	event:{
+		id: String,
+		name: String,
+		register: [ref User],
+		description: String,
+		create_date: Date,
+		start_register:Date,
+		end_register:Date,
+		start_date: Date,
+		end_date: Date,
+		status: String
+	}
+	fact:{
+		id: String,
+		name: String,
+		number: String,
+		description: String,
+		create_date: Date,
+		mordify_date: Date
+		status: String
+	}
+	video:{
+		id: String,
+		name: String,
+		link: String,
+		create_date: Date,
+		author: String,
+		status: String
+	}
+	banner:{
+		id: String,
+		name: String,
+		link: String,
+		create_date: Date,
+		author: String,
+		status: String
+	}
+CMS: Dựa theo layout, theme của template. Mỗi phần quản lý đều có: List, thêm, sửa, xóa.
+	Quản lý người quản trị	
+	Quản lý doanh nghiệp	
+	Quản lý người dùng (End-user)	
+	Quản lý game	
+		Quản lý người chơi game
+		Quản lý record game
+		Quản lý nội dung game
+
+	Quản lý Tin tức/ Blog
+	Quản lý Fact
+	Quản lý Event
+	Quản lý Video
+	Quản lý Banner

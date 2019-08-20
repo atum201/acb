@@ -1,0 +1,58 @@
+.card-apartment-table{
+  transition: all 1s linear;
+  .card-header{
+     .btn-customadd{
+      background: none;
+      color: #d7275c;
+      border: 1px solid #d7275c;
+     }
+     .btn-customadd:hover{
+      background: #ffe6ee!important;
+    }
+    .btn-customsearch{
+      font-weight: bold;
+      color: rgb(74, 144, 226);
+      border: 1px solid rgb(74, 144, 226);
+    }
+  }
+  .all{
+    height: auto;
+  }
+
+  .table {
+    .btn{
+      margin: 0 1px;
+    }
+   
+    .spantable{
+      color: rgb(74, 144, 226);
+      font-weight: bold;
+    }
+    .btn-custom1{
+      color: rgb(215, 39, 92);
+      border: 1px solid rgb(215, 39, 92);
+    }
+    .btn-custom2{
+      color: rgb(74, 144, 226);
+      border: 1px solid rgb(74, 144, 226);
+    }
+    .btn-custom2:hover{
+      background: rgb(208, 231, 255)!important;
+     
+    }
+    .btn-custom1:hover{
+      background: rgb(255, 230, 238)!important;
+      
+    }
+    .btn-custom3{
+      color: rgba(255, 152, 0, 0.88);
+      border: 1px solid rgba(255, 152, 0, 0.88);
+    }
+    .btn-custom3:hover{
+      background: rgba(255, 152, 0, 0.25) !important;
+    }
+    .th-sort{
+      cursor: pointer;
+    }
+  }
+}

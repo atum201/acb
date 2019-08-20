@@ -1,0 +1,28 @@
+version: '2.1'
+
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/gmb
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+volumes:
+  # default dir on Ubuntu: /var/lib/docker/volumes
+  mongo_data:

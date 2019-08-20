@@ -1,0 +1,67 @@
+.rc-calendar{
+  width: 100%;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  border: none;
+  margin-bottom: 30px;
+
+  .rc-calendar-input-wrap, .rc-calendar-prev-year-btn, .rc-calendar-next-year-btn, .rc-calendar-footer{
+    display: none;
+  }
+
+  .rc-calendar-prev-month-btn{
+    left: 0;
+    &:after{
+      font-size: 50px;
+      color: #D7275C;
+    }
+  }
+
+  .rc-calendar-next-month-btn{
+    right: 0;
+    &:after{
+      font-size: 50px;
+      color: #D7275C
+    }
+  }
+
+  .rc-calendar-month-select, .rc-calendar-year-select{
+    margin-top: 3px;
+    font-size: 16px;
+    color: #717171 !important;
+    padding: 0 3px;
+    font-weight: normal;
+  }
+
+  .rc-calendar-header{
+    height: 50px;
+    padding-top: 5px;
+    border-bottom: none;
+  }
+
+  .rc-calendar-body{
+    padding: 15px 0;
+    height: 290px;
+  }
+
+  .rc-calendar-column-header-inner{
+    font-weight: 600;
+  }
+
+  .rc-calendar-column-header-inner, .rc-calendar-date {
+    font-size: 16px;
+  }
+
+  .rc-calendar-date{
+    margin: 5px auto;
+    color: #878787;
+    font-weight: 500;
+  }
+
+  .rc-calendar-date:hover, .rc-calendar-selected-date .rc-calendar-date {
+    border-radius: 50%;
+    background: #D7275C;
+    color: white;
+  }
+
+
+}
