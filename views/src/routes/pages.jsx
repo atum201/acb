@@ -1,5 +1,5 @@
 import LoginPage from "views/Pages/LoginPage.jsx";
-
+import BannerCreate from "views/AdminPage/BannerPage/BannerCreate.jsx";
 const pagesRoutes = [
   {
     path: "/dang-nhap",

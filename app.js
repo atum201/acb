@@ -1,12 +1,13 @@
 const createError = require('http-errors');
 const express = require('express');
+
 const cors = require('cors');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const path = require('path');
 const bodyParser = require('body-parser');
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 
 const Game = require('./models/game.model');
 const Result = require('./models/result.model');
@@ -21,10 +22,10 @@ const gameHelper = require('./helpers/game.helper');
 require('events').EventEmitter.defaultMaxListeners = 20000;
 app.use(cors('*'));
 app.use(bodyParser.json());
-app.use(fileUpload({
-    limits: { fileSize: 50 * 1024 * 1024 },
-    createParentPath: true
-}));
+// app.use(fileUpload({
+//     limits: { fileSize: 50 * 1024 * 1024 },
+//     createParentPath: true
+// }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('./database/database');
@@ -43,6 +44,9 @@ app.use('/news', require('./routes/news.route'));
 app.use('/video', require('./routes/video.route'));
 
 app.use('/upload', require('./routes/upload.route'));
+
+app.use('upload',express.static(path.join(__dirname, 'upload')));
+// app.use('/video',express.static(path.join(__dirname, 'upload/video')));
 
 gameHelper.resetWhenServerDown();
                        
@@ -309,6 +313,9 @@ io.on('connection', async function (socket) {
 });
 
 app.use('/static', express.static(path.join(__dirname, 'views/build/static')));
+app.use('/test', (req, res) => {
+    res.sendFile(path.join(__dirname, 'test/index.html'));
+});
 app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'views/build/index.html'));
 });

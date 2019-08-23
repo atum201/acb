@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const BannerController = require('../controllers/banner.controller');
-
+const UploadImage = require('../controllers/image.controller');
 router.get('/list', BannerController.getList);
 
 router.get('/detail/:banner_id', BannerController.getDetail);

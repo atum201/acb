@@ -19,6 +19,7 @@ export default function callApi(
       "access_token_admin": localStorage.getItem("access_token_admin")
     }
   }).then(res => {
+    console.log('here',data,HOST)
     if (res.data.status === "AUTH") {
       localStorage.clear();
       window.location.href = "/";

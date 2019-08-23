@@ -43,6 +43,21 @@ export const actUpdateBannerRequest = (
 };
 //actCreateBannerRequest
 export const actCreateBannerRequest = (name, code, link, img, createdAt) => {
+  callApiCms('upload/image','POST',img,true).then(res=>{console.log(res.data)})
+  // .then()
+  // .catch(res => {
+  //   const error = res.response.data;
+  //   var messagec = "Đã có lỗi xảy ra xin vui lòng thử lại sau";
+  //   if (error) {
+  //     messagec = renderErrorSever(error.message);
+  //   }
+  //   dispatch(
+  //     actFetchResourceFail({
+  //       message: messagec,
+  //       confirmTo: "/admin-page/them-banner"
+  //     })
+  //   );
+  // })
   return dispatch => {
     return callApiCms("banner", "POST", {
       name,

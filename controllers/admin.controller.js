@@ -7,6 +7,7 @@ module.exports.login = (req, res) => {
     const { username, password } = req.body;
     return Admin.findOne({ username })
         .then(async admin => {
+            console.log(username, admin)
             if (!admin)
                 throw new Error('USERNAME_OR_PASSWORD_NOT_MATCH');
 

@@ -8,7 +8,8 @@ import {
   CardTitle,
   CardBody,
   CardFooter,
-  Label
+  Label,
+  Input
 } from "reactstrap";
 import { PanelHeader, MaterialInputText, Button } from "components";
 import { connect } from "react-redux";
@@ -20,6 +21,7 @@ import viLocale from "date-fns/locale/vi";
 import PropTypes from "prop-types";
 import { Editor } from '@tinymce/tinymce-react';
 import { MuiPickersUtilsProvider, DateTimePicker } from "@material-ui/pickers";
+import callApi from "utils/callApiCms";
 
 class BannerCreate extends Component {
   constructor(props) {
@@ -85,9 +87,20 @@ class BannerCreate extends Component {
   }
 
   handleOnChange = e => {
-    const bannercreate = this.state.bannercreate;
+    const {bannercreate,image} = this.state;
+
     bannercreate.map(prop => {
-      if (prop.name === e.target.name) {
+      if(e.target.name === "img" && prop.name === 'img'){
+        
+        let img = new FormData();
+        img.append("image",e.target.files[0])
+        img.append("imgname","ten file anh");
+        
+        // callApi('upload/image','POST',img,true).then(res=>{console.log(res.data)})
+        prop.value = img;
+        console.log(prop);
+      }
+      else if (prop.name === e.target.name) {
         prop.value = e.target.value;
         prop.error = false;
         prop.errorMessage = "";
@@ -98,6 +111,7 @@ class BannerCreate extends Component {
     this.setState({
       bannercreate
     });
+    
   }
 
   validate = () => {
@@ -125,6 +139,9 @@ class BannerCreate extends Component {
 
   handleOnSubmit = () => {
     var isValid = this.validate();
+    
+
+
     const { bannercreate,createdAt } = this.state;
     if (isValid) {
       if (this.state.isEdit === true) {
@@ -208,8 +225,8 @@ class BannerCreate extends Component {
                   </Row>
                   <Row>
                     <Col md="12">
-                      <Label>File ảnh banner</Label>
-                      
+                      <Label>Ảnh banner</Label>
+                      <Input onChange={this.handleOnChange} type="file" name="img"/>
                     </Col>
                   </Row>
                   

@@ -9,7 +9,7 @@ const { searchingQueries, pagingOptions } = require('../helpers/paginate.helper'
 
 module.exports.getList = (req, res) => {
     // const { status } = req.query;
-
+    
     let query = {};
     // if (status == 'all')
     //     input.status = { : null };
@@ -35,6 +35,7 @@ module.exports.getDetail = async (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
+    console.log(req.body)
     Banner.init().then(async () => {
 
         let { body } = req;

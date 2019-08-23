@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
 
   checkLogin = () => {
     if (!localStorage.getItem("access_token_admin")) {
-      this.props.history.push("/dang-nhap");
+      //this.props.history.push("/dang-nhap");
     }
   };
 
@@ -104,7 +104,7 @@ class Dashboard extends React.Component {
           />
         )}
         <Sidebar {...this.props} routes={dashboardRoutes} />
-        <div className="main-panel" ref="mainPanel">
+        <div className="main-panel" ref="mainPanel" style={{overflow:"auto"}}>
           <Header {...this.props} />
           <Switch>
             {dashboardRoutes.map((prop, key) => {
