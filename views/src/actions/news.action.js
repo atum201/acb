@@ -4,9 +4,9 @@ import { actFetchResourceSuccess, actFetchResourceFail } from "./fetch.action";
 import { renderErrorSever } from "../utils/renderError";
 import HOST from "../constants/host";
 
-export const actUpdateEnterpriseRequest = (
-  enterprise_id,
-  name, user_id, icon, address, phone, email, introdution, createdAt,
+export const actUpdateNewsRequest = (
+  news_id,
+  enterprise_id, title, avatar, description, content, author, createdAt,
   file
 ) => {
   return dispatch => {
@@ -15,15 +15,15 @@ export const actUpdateEnterpriseRequest = (
         .then(res =>{          
           if(res.status == 200){
             // upload file thanh cong
-            icon = HOST+res.data.image;
-            return callApiCms("enterprise/" + enterprise_id, "PUT", {
-              name, user_id, icon, address, phone, email, introdution, createdAt
+            avatar = HOST+res.data.image;
+            return callApiCms("news/" + news_id, "PUT", {
+              enterprise_id, title, avatar, description, content, author, createdAt
             })
               .then(res => {
                 dispatch(
                   actFetchResourceSuccess({
-                    message: "Bạn đã cập nhật Enterprise thành công!",
-                    confirmTo: "/admin-page/danh-sach-enterprise"
+                    message: "Bạn đã cập nhật News thành công!",
+                    confirmTo: "/admin-page/danh-sach-news"
                   })
                 );
               })
@@ -36,7 +36,7 @@ export const actUpdateEnterpriseRequest = (
                 dispatch(
                   actFetchResourceFail({
                     message: message,
-                    confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+                    confirmTo: "/admin-page/sua-news/" + news_id
                   })
                 );
               });
@@ -49,7 +49,7 @@ export const actUpdateEnterpriseRequest = (
             dispatch(
               actFetchResourceFail({
                 message: message,
-                confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+                confirmTo: "/admin-page/sua-news/" + news_id
               })
             );
           }
@@ -63,19 +63,19 @@ export const actUpdateEnterpriseRequest = (
           dispatch(
             actFetchResourceFail({
               message: message,
-              confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+              confirmTo: "/admin-page/sua-news/" + news_id
             })
           );
         });
     }else{
-      return callApiCms("enterprise/" + enterprise_id, "PUT", {
-        name, user_id, icon, address, phone, email, introdution, createdAt
+      return callApiCms("news/" + news_id, "PUT", {
+        enterprise_id, title, avatar, description, content, author, createdAt
       })
         .then(res => {
           dispatch(
             actFetchResourceSuccess({
-              message: "Bạn đã cập nhật Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã cập nhật News thành công!",
+              confirmTo: "/admin-page/danh-sach-news"
             })
           );
         })
@@ -88,7 +88,7 @@ export const actUpdateEnterpriseRequest = (
           dispatch(
             actFetchResourceFail({
               message: message,
-              confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+              confirmTo: "/admin-page/sua-news/" + news_id
             })
           );
         });
@@ -96,23 +96,23 @@ export const actUpdateEnterpriseRequest = (
     
   };
 };
-//actCreateEnterpriseRequest
-export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, email, introdution, createdAt,file) => {
+//actCreateNewsRequest
+export const actCreateNewsRequest = (enterprise_id, title, avatar, description, content, author, createdAt,file) => {
   return dispatch => {
     if(file){
       return callApiCms('upload/image','POST',file,true)
         .then(res =>{          
           if(res.status == 200){
             // upload file thanh cong
-            icon = HOST+res.data.image;
-            return callApiCms("enterprise", "POST", {
-              name, user_id, icon, address, phone, email, introdution, createdAt
+            avatar = HOST+res.data.image;
+            return callApiCms("news", "POST", {
+              enterprise_id, title, avatar, description, content, author, createdAt
             })
               .then(res => {
                 dispatch(
                   actFetchResourceSuccess({
-                    message: "Bạn đã thêm Enterprise thành công!",
-                    confirmTo: "/admin-page/danh-sach-enterprise"
+                    message: "Bạn đã thêm News thành công!",
+                    confirmTo: "/admin-page/danh-sach-news"
                   })
                 );
               })
@@ -125,7 +125,7 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
                 dispatch(
                   actFetchResourceFail({
                     message: messagec,
-                    confirmTo: "/admin-page/them-enterprise"
+                    confirmTo: "/admin-page/them-news"
                   })
                 );
               });
@@ -142,19 +142,19 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/them-enterprise"
+              confirmTo: "/admin-page/them-news"
             })
           );
         });
     }else{
-      return callApiCms("enterprise", "POST", {
-        name, user_id, icon, address, phone, email, introdution, createdAt
+      return callApiCms("news", "POST", {
+        enterprise_id, title, avatar, description, content, author, createdAt
       })
         .then(res => {
           dispatch(
             actFetchResourceSuccess({
-              message: "Bạn đã thêm Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã thêm News thành công!",
+              confirmTo: "/admin-page/danh-sach-news"
             })
           );
         })
@@ -167,7 +167,7 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/them-enterprise"
+              confirmTo: "/admin-page/them-news"
             })
           );
         });
@@ -176,47 +176,47 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
     
   };
 };
-//getEnterpriseByID
-export const actGetEnterpriseByID = enterprise_id => {
+//getNewsByID
+export const actGetNewsByID = news_id => {
   return dispatch => {
-    return callApiCms(`enterprise/` +enterprise_id, "GET").then(res => {
-      dispatch(actGetEnterpriseIDDp(res));
+    return callApiCms(`news/` +news_id, "GET").then(res => {
+      dispatch(actGetNewsIDDp(res));
     });
   };
 };
-export const actGetEnterpriseIDDp = enterpriseDetail => {
+export const actGetNewsIDDp = newsDetail => {
   return {
-    type: Types.GET_ENTERPRISEBYID,
-    enterpriseDetail
+    type: Types.GET_NEWSBYID,
+    newsDetail
   };
 };
 
-//getListEnterprise
-export const actGetListEnterprise = () => {
+//getListNews
+export const actGetListNews = () => {
   return dispatch => {
-    return callApiCms(`enterprise/list`, "GET").then(res => {
-      dispatch(actGetListEnterpriseDp(res.data.docs));
+    return callApiCms(`news/list`, "GET").then(res => {
+      dispatch(actGetListNewsDp(res.data.docs));
     });
   };
 };
-export const actGetListEnterpriseDp = listEnterprise => {
+export const actGetListNewsDp = listNews => {
   return {
-    type: Types.GET_LISTENTERPRISE,
-    listEnterprise
+    type: Types.GET_LISTNEWS,
+    listNews
   };
 };
 
-export const actDeleteEnterpriseRequest = (enterprise_id) => {
+export const actDeleteNewsRequest = (news_id) => {
   return dispatch => {
-    return callApiCms("enterprise/delete/"+enterprise_id, "DELETE")
+    return callApiCms("news/delete/"+news_id, "DELETE")
         .then(res => {
           dispatch(
             actFetchResourceFail({
-              message: "Bạn đã xóa Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã xóa News thành công!",
+              confirmTo: "/admin-page/danh-sach-news"
             })
           );
-          dispatch(actDeleteEnterpriseDp(enterprise_id));
+          dispatch(actDeleteNewsDp(news_id));
         })
         .catch(res => {
           const error = res.response.data;
@@ -227,16 +227,16 @@ export const actDeleteEnterpriseRequest = (enterprise_id) => {
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              confirmTo: "/admin-page/danh-sach-news"
             })
           );
         });    
   };
 };
 
-export const actDeleteEnterpriseDp = enterprise_id => {
+export const actDeleteNewsDp = news_id => {
   return {
-    type: Types.DELETE_ENTERPRISE,
-    enterprise_id
+    type: Types.DELETE_NEWS,
+    news_id
   };
 };

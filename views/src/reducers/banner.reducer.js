@@ -10,6 +10,8 @@ const bannerReducer = (state = initialState, action) => {
       return { ...state, listBanner: action.listBanner };
     case Types.GET_BANNERBYID:
       return { ...state, bannerDetail: action.bannerDetail };
+    case Types.DELETE_BANNER:
+      return {listBanner: state.listBanner.filter(x=>x.banner_id !== action.banner_id)};
     default:
       return state;
   }

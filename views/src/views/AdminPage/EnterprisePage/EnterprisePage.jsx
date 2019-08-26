@@ -11,7 +11,7 @@ import {
 import { Button } from "components";
 import { Link } from "react-router-dom";
 import PanelHeader from "../../../components/PanelHeader/PanelHeader";
-import { actGetListBanner, actDeleteBannerRequest } from "../../../actions/banner.action";
+import { actGetListEnterprise, actDeleteEnterpriseRequest } from "../../../actions/enterprise.action";
 import { formatMoney } from "../../../utils/formatMoney";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -25,7 +25,7 @@ import { renderErrorSever } from "../../../utils/renderError";
 import AlertWarning from "components/SweetAlert/AlertWarning";
 import AlertErrorCheck from "components/SweetAlert/AlertErrorCheck";
 import AlertSuccess from "components/SweetAlert/AlertSuccess";
-class BannerPage extends Component {
+class EnterprisePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,10 +34,10 @@ class BannerPage extends Component {
     };
   }
   componentDidMount() {
-    this.getListBanner();
+    this.getListEnterprise();
   }
-  getListBanner() {
-    this.props.getListBanner();
+  getListEnterprise() {
+    this.props.getListEnterprise();
   }
   _showError(messageErrorSV) {
     this.setState({
@@ -52,15 +52,14 @@ class BannerPage extends Component {
     });
   }
   handleDelete = (e) => {
-    this.props.deleteBanner(e);
+    this.props.deleteEnterprise(e);
   }
   _hideAlert(){
-    this.props.getListBanner();
+    this.props.getListEnterprise();
     this.setState({ alert: "" });
   };
   render() {
-    const { listBanners } = this.props;
-    console.log(listBanners)
+    const { listEnterprises } = this.props;
     const IOSSwitch = withStyles(theme => ({
       root: {
         width: 42,
@@ -120,19 +119,19 @@ class BannerPage extends Component {
         <div className="content">
           <Card className="card-apartment-table">
             <CardHeader>
-              <CardTitle type="h5">Danh sách banner</CardTitle>
+              <CardTitle type="h5">Danh sách enterprise</CardTitle>
               <Row>
                 <Col md={"3"} />
                 <Col md={"3"} />
                 <Col md={"3"} />
                 <Col className={"text-right"} md={{ size: 3 }}>
-                  <Link to="/admin-page/them-banner">
+                  <Link to="/admin-page/them-enterprise">
                     <Button
                       simple
                       style={{ width: "200px" }}
                       className="btn-customadd"
                     >
-                      <i className="fas fa-gamepad" /> Tạo Banner Mới
+                      <i className="fas fa-gamepad" /> Tạo Enterprise Mới
                     </Button>
                   </Link>
                 </Col>
@@ -146,11 +145,10 @@ class BannerPage extends Component {
                       <span>Tên</span>
                     </th>
                     <th>
-                      <span>Mã</span>
+                      <span>Địa chỉ</span>
                     </th>
-
                     <th>
-                      <span>Link</span>
+                      <span>Email</span>
                     </th>
                     <th>
                       <span>Ảnh</span>
@@ -159,23 +157,23 @@ class BannerPage extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  { listBanners && Object.keys(listBanners).length > 0 &&
-                    listBanners.map((props, key) => {
+                  { listEnterprises && Object.keys(listEnterprises).length > 0 &&
+                    listEnterprises.map((props, key) => {
                       return (
                         <tr key={key}>
                           <td>{props.name}</td>
-                          <td> {props.code} </td>
-                          <td> {props.link}</td>
-                          <td> <img src={props.img} height="80"/></td>
+                          <td> {props.address} </td>
+                          <td> {props.email}</td>
+                          <td> <img src={props.icon} height="80"/></td>
                           <td className="text-right">
                             <Link
-                              to={"/admin-page/sua-banner/" + props.banner_id}
+                              to={"/admin-page/sua-enterprise/" + props.enterprise_id}
                             >
                               <Button className="btn-simple btn-icon btn btn-info btn-sm">
                                 <i className="fas fa-pen" />
                               </Button>
                             </Link>
-                            <Button className="btn-simple btn-icon btn btn-info btn-sm" onClick={()=> this.handleDelete(props.banner_id)}>
+                            <Button className="btn-simple btn-icon btn btn-info btn-sm" onClick={()=> this.handleDelete(props.enterprise_id)}>
                                 <i className="fas fa-trash" />
                               </Button>
                           </td>
@@ -193,17 +191,17 @@ class BannerPage extends Component {
 }
 const mapStateToProps = state => {
   return {
-    listBanners: state.bannerReducer.listBanner
+    listEnterprises: state.enterpriseReducer.listEnterprise
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getListBanner: () => {
-      dispatch(actGetListBanner());
+    getListEnterprise: () => {
+      dispatch(actGetListEnterprise());
     },
-    deleteBanner: (banner_id)=>{
-      dispatch(actDeleteBannerRequest(banner_id));
+    deleteEnterprise: (enterprise_id)=>{
+      dispatch(actDeleteEnterpriseRequest(enterprise_id));
     }
   };
 };
@@ -211,10 +209,11 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BannerPage);
-BannerPage.propTypes = {
+)(EnterprisePage);
+EnterprisePage.propTypes = {
   data: PropTypes.object
 };
-BannerPage.defaultProps = {
+EnterprisePage.defaultProps = {
   data: {}
 };
+

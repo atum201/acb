@@ -8,6 +8,7 @@ if (
   // var HOST = "http://acbtet2019.wejelly.com/";
   var HOST = "http://localhost:5000/";
   // var HOST = "http://acbiq.wejelly.com/";
+  // var HOST = "http://acbcsr.wejelly.com/";
 } else {
   HOST = window.location.protocol + "//" + window.location.hostname + "/";
 }

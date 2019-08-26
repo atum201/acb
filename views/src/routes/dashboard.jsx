@@ -1,6 +1,15 @@
-// import BannerPage from "views/AdminPage/BannerPage/BannerPage.jsx";
+import BannerPage from "views/AdminPage/BannerPage/BannerPage.jsx";
 import BannerCreate from "views/AdminPage/BannerPage/BannerCreate.jsx";
-// import BannerView from "views/AdminPage/BannerPage/BannerView.jsx";
+
+import EnterprisePage from "views/AdminPage/EnterprisePage/EnterprisePage.jsx";
+import EnterpriseCreate from "views/AdminPage/EnterprisePage/EnterpriseCreate.jsx";
+
+import EventPage from "views/AdminPage/EventPage/EventPage.jsx";
+import EventCreate from "views/AdminPage/EventPage/EventCreate.jsx";
+
+import AccountPage from "views/AdminPage/AccountPage/AccountPage.jsx";
+import AccountCreate from "views/AdminPage/AccountPage/AccountCreate.jsx";
+
 
 import GamePage from "views/AdminPage/GamePage/GamePage.jsx";
 import GameCreate from "views/AdminPage/GamePage/GameCreate.jsx";
@@ -16,21 +25,44 @@ import SetupInfo from "views/AdminPage/SetupInfo/SetupInfo.jsx";
 import SetupInfoUpdate from "views/AdminPage/SetupInfo/SetupInfoUpdate.jsx";
 import LogoutPage from "views/Pages/LogouPage.jsx";
 var dashRoutes = [
+  //Enterprise
+  {
+    path: "/admin-page/danh-sach-enterprise",
+    name: "Danh sách enterprise",
+    icon: "fas fa-image",
+    component: EnterprisePage
+  },
+  {
+    path: "/admin-page/sua-enterprise/:enterprise_id",
+    name: "Sửa enterprise",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: EnterpriseCreate
+  },
+  {
+    path: "/admin-page/them-enterprise",
+    name: "Thêm enterprise",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: EnterpriseCreate
+  },
   //Banner
-  // {
-  //   path: "/admin-page/danh-sach-banner",
-  //   name: "Danh sách banner",
-  //   icon: "fas fa-image",
-  //   component: BannerPage
-  // },
-  // {
-  //   path: "/admin-page/xem-chi-tiet-banner/:id",
-  //   name: "Xem chi tiết banner",
-  //   icon: "fas fa-image",
-  //   invisible: true,
-  //   exact: true,
-  //   component: BannerView
-  // },
+  {
+    path: "/admin-page/danh-sach-banner",
+    name: "Danh sách banner",
+    icon: "fas fa-image",
+    component: BannerPage
+  },
+  {
+    path: "/admin-page/sua-banner/:banner_id",
+    name: "Sửa banner",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: BannerCreate
+  },
   {
     path: "/admin-page/them-banner",
     name: "Thêm banner",
@@ -39,7 +71,61 @@ var dashRoutes = [
     exact: true,
     component: BannerCreate
   },
-
+  
+  //Account
+  {
+    path: "/admin-page/danh-sach-account",
+    name: "Danh sách account",
+    icon: "fas fa-image",
+    component: AccountPage
+  },
+  {
+    path: "/admin-page/sua-account/:account_id",
+    name: "Sửa account",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: AccountCreate
+  },
+  {
+    path: "/admin-page/them-account",
+    name: "Thêm account",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: AccountCreate
+  },
+  //Event
+  {
+    path: "/admin-page/danh-sach-event",
+    name: "Danh sách event",
+    icon: "fas fa-image",
+    component: EventPage
+  },
+  {
+    path: "/admin-page/sua-event/:event_id",
+    name: "Sửa event",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: EventCreate
+  },
+  {
+    path: "/admin-page/them-event",
+    name: "Thêm event",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: EventCreate
+  },
+  {
+    path: "/admin-page/them-enterprise",
+    name: "Thêm enterprise",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: EnterpriseCreate
+  },
   {
     path: "/admin-page/danh-sach-tro-choi",
     name: "Danh sách trò chơi",
@@ -154,7 +240,7 @@ var dashRoutes = [
   {
     redirect: true,
     path: "/admin-page",
-    pathTo: "/admin-page/danh-sach-tro-choi",
+    pathTo: "/admin-page/danh-sach-enterprise",
     name: "Dashboard"
   }
 ];

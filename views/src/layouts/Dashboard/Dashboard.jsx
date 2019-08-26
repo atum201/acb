@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
 
   checkLogin = () => {
     if (!localStorage.getItem("access_token_admin")) {
-      //this.props.history.push("/dang-nhap");
+      // this.props.history.push("/dang-nhap");
     }
   };
 

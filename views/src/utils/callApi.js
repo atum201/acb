@@ -7,6 +7,7 @@ export default function callApi(
   data = null,
   formData = false
 ) {
+  console.log(`${HOST}${endpoint}`)
   return axios({
     method: method,
     url: `${HOST}${endpoint}`,

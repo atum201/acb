@@ -4,9 +4,9 @@ import { actFetchResourceSuccess, actFetchResourceFail } from "./fetch.action";
 import { renderErrorSever } from "../utils/renderError";
 import HOST from "../constants/host";
 
-export const actUpdateEnterpriseRequest = (
-  enterprise_id,
-  name, user_id, icon, address, phone, email, introdution, createdAt,
+export const actUpdateFactRequest = (
+  fact_id,
+  name, number, description, createdAt,
   file
 ) => {
   return dispatch => {
@@ -15,15 +15,15 @@ export const actUpdateEnterpriseRequest = (
         .then(res =>{          
           if(res.status == 200){
             // upload file thanh cong
-            icon = HOST+res.data.image;
-            return callApiCms("enterprise/" + enterprise_id, "PUT", {
-              name, user_id, icon, address, phone, email, introdution, createdAt
+             = HOST+res.data.image;
+            return callApiCms("fact/" + fact_id, "PUT", {
+              name, number, description, createdAt
             })
               .then(res => {
                 dispatch(
                   actFetchResourceSuccess({
-                    message: "Bạn đã cập nhật Enterprise thành công!",
-                    confirmTo: "/admin-page/danh-sach-enterprise"
+                    message: "Bạn đã cập nhật Fact thành công!",
+                    confirmTo: "/admin-page/danh-sach-fact"
                   })
                 );
               })
@@ -36,7 +36,7 @@ export const actUpdateEnterpriseRequest = (
                 dispatch(
                   actFetchResourceFail({
                     message: message,
-                    confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+                    confirmTo: "/admin-page/sua-fact/" + fact_id
                   })
                 );
               });
@@ -49,7 +49,7 @@ export const actUpdateEnterpriseRequest = (
             dispatch(
               actFetchResourceFail({
                 message: message,
-                confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+                confirmTo: "/admin-page/sua-fact/" + fact_id
               })
             );
           }
@@ -63,19 +63,19 @@ export const actUpdateEnterpriseRequest = (
           dispatch(
             actFetchResourceFail({
               message: message,
-              confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+              confirmTo: "/admin-page/sua-fact/" + fact_id
             })
           );
         });
     }else{
-      return callApiCms("enterprise/" + enterprise_id, "PUT", {
-        name, user_id, icon, address, phone, email, introdution, createdAt
+      return callApiCms("fact/" + fact_id, "PUT", {
+        name, number, description, createdAt
       })
         .then(res => {
           dispatch(
             actFetchResourceSuccess({
-              message: "Bạn đã cập nhật Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã cập nhật Fact thành công!",
+              confirmTo: "/admin-page/danh-sach-fact"
             })
           );
         })
@@ -88,7 +88,7 @@ export const actUpdateEnterpriseRequest = (
           dispatch(
             actFetchResourceFail({
               message: message,
-              confirmTo: "/admin-page/sua-enterprise/" + enterprise_id
+              confirmTo: "/admin-page/sua-fact/" + fact_id
             })
           );
         });
@@ -96,23 +96,23 @@ export const actUpdateEnterpriseRequest = (
     
   };
 };
-//actCreateEnterpriseRequest
-export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, email, introdution, createdAt,file) => {
+//actCreateFactRequest
+export const actCreateFactRequest = (name, number, description, createdAt,file) => {
   return dispatch => {
     if(file){
       return callApiCms('upload/image','POST',file,true)
         .then(res =>{          
           if(res.status == 200){
             // upload file thanh cong
-            icon = HOST+res.data.image;
-            return callApiCms("enterprise", "POST", {
-              name, user_id, icon, address, phone, email, introdution, createdAt
+            = HOST+res.data.image;
+            return callApiCms("fact", "POST", {
+              name, number, description, createdAt
             })
               .then(res => {
                 dispatch(
                   actFetchResourceSuccess({
-                    message: "Bạn đã thêm Enterprise thành công!",
-                    confirmTo: "/admin-page/danh-sach-enterprise"
+                    message: "Bạn đã thêm Fact thành công!",
+                    confirmTo: "/admin-page/danh-sach-fact"
                   })
                 );
               })
@@ -125,7 +125,7 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
                 dispatch(
                   actFetchResourceFail({
                     message: messagec,
-                    confirmTo: "/admin-page/them-enterprise"
+                    confirmTo: "/admin-page/them-fact"
                   })
                 );
               });
@@ -142,19 +142,19 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/them-enterprise"
+              confirmTo: "/admin-page/them-fact"
             })
           );
         });
     }else{
-      return callApiCms("enterprise", "POST", {
-        name, user_id, icon, address, phone, email, introdution, createdAt
+      return callApiCms("fact", "POST", {
+        name, number, description, createdAt
       })
         .then(res => {
           dispatch(
             actFetchResourceSuccess({
-              message: "Bạn đã thêm Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã thêm Fact thành công!",
+              confirmTo: "/admin-page/danh-sach-fact"
             })
           );
         })
@@ -167,7 +167,7 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/them-enterprise"
+              confirmTo: "/admin-page/them-fact"
             })
           );
         });
@@ -176,50 +176,49 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
     
   };
 };
-//getEnterpriseByID
-export const actGetEnterpriseByID = enterprise_id => {
+//getFactByID
+export const actGetFactByID = fact_id => {
   return dispatch => {
-    return callApiCms(`enterprise/` +enterprise_id, "GET").then(res => {
-      dispatch(actGetEnterpriseIDDp(res));
+    return callApiCms(`fact/` +fact_id, "GET").then(res => {
+      dispatch(actGetFactIDDp(res));
     });
   };
 };
-export const actGetEnterpriseIDDp = enterpriseDetail => {
+export const actGetFactIDDp = factDetail => {
   return {
-    type: Types.GET_ENTERPRISEBYID,
-    enterpriseDetail
+    type: Types.GET_FACTBYID,
+    factDetail
   };
 };
 
-//getListEnterprise
-export const actGetListEnterprise = () => {
+//getListFact
+export const actGetListFact = () => {
   return dispatch => {
-    return callApiCms(`enterprise/list`, "GET").then(res => {
-      dispatch(actGetListEnterpriseDp(res.data.docs));
+    return callApiCms(`fact/list`, "GET").then(res => {
+      dispatch(actGetListFactDp(res.data.docs));
     });
   };
 };
-export const actGetListEnterpriseDp = listEnterprise => {
+export const actGetListFactDp = listFact => {
   return {
-    type: Types.GET_LISTENTERPRISE,
-    listEnterprise
+    type: Types.GET_LISTFACT,
+    listFact
   };
 };
 
-export const actDeleteEnterpriseRequest = (enterprise_id) => {
+export const actDeleteFactRequest = (fact_id) => {
   return dispatch => {
-    return callApiCms("enterprise/delete/"+enterprise_id, "DELETE")
+    return callApiCms("fact/delete/"+fact_id, "DELETE")
         .then(res => {
           dispatch(
             actFetchResourceFail({
-              message: "Bạn đã xóa Enterprise thành công!",
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              message: "Bạn đã xóa Fact thành công!",
+              confirmTo: "/admin-page/danh-sach-fact"
             })
           );
-          dispatch(actDeleteEnterpriseDp(enterprise_id));
+          dispatch(actDeleteFactDp(fact_id));
         })
         .catch(res => {
-          const error = res.response.data;
           var messagec = "Đã có lỗi xảy ra xin vui lòng thử lại sau";
           if (error) {
             messagec = renderErrorSever(error.message);
@@ -227,16 +226,16 @@ export const actDeleteEnterpriseRequest = (enterprise_id) => {
           dispatch(
             actFetchResourceFail({
               message: messagec,
-              confirmTo: "/admin-page/danh-sach-enterprise"
+              confirmTo: "/admin-page/danh-sach-fact"
             })
           );
         });    
   };
 };
 
-export const actDeleteEnterpriseDp = enterprise_id => {
+export const actDeleteFactDp = fact_id => {
   return {
-    type: Types.DELETE_ENTERPRISE,
-    enterprise_id
+    type: Types.DELETE_FACT,
+    fact_id
   };
 };

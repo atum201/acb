@@ -11,7 +11,7 @@ import {
 import { Button } from "components";
 import { Link } from "react-router-dom";
 import PanelHeader from "../../../components/PanelHeader/PanelHeader";
-import { actGetListBanner, actDeleteBannerRequest } from "../../../actions/banner.action";
+import { actGetListAccount, actDeleteAccountRequest } from "../../../actions/account.action";
 import { formatMoney } from "../../../utils/formatMoney";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -25,7 +25,7 @@ import { renderErrorSever } from "../../../utils/renderError";
 import AlertWarning from "components/SweetAlert/AlertWarning";
 import AlertErrorCheck from "components/SweetAlert/AlertErrorCheck";
 import AlertSuccess from "components/SweetAlert/AlertSuccess";
-class BannerPage extends Component {
+class AccountPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,10 +34,10 @@ class BannerPage extends Component {
     };
   }
   componentDidMount() {
-    this.getListBanner();
+    this.getListAccount();
   }
-  getListBanner() {
-    this.props.getListBanner();
+  getListAccount() {
+    this.props.getListAccount();
   }
   _showError(messageErrorSV) {
     this.setState({
@@ -52,15 +52,14 @@ class BannerPage extends Component {
     });
   }
   handleDelete = (e) => {
-    this.props.deleteBanner(e);
+    this.props.deleteAccount(e);
   }
   _hideAlert(){
-    this.props.getListBanner();
+    this.props.getListAccount();
     this.setState({ alert: "" });
   };
   render() {
-    const { listBanners } = this.props;
-    console.log(listBanners)
+    const { listAccounts } = this.props;
     const IOSSwitch = withStyles(theme => ({
       root: {
         width: 42,
@@ -120,19 +119,19 @@ class BannerPage extends Component {
         <div className="content">
           <Card className="card-apartment-table">
             <CardHeader>
-              <CardTitle type="h5">Danh sách banner</CardTitle>
+              <CardTitle type="h5">Danh sách account</CardTitle>
               <Row>
                 <Col md={"3"} />
                 <Col md={"3"} />
                 <Col md={"3"} />
                 <Col className={"text-right"} md={{ size: 3 }}>
-                  <Link to="/admin-page/them-banner">
+                  <Link to="/admin-page/them-account">
                     <Button
                       simple
                       style={{ width: "200px" }}
                       className="btn-customadd"
                     >
-                      <i className="fas fa-gamepad" /> Tạo Banner Mới
+                      <i className="fas fa-gamepad" /> Tạo Account Mới
                     </Button>
                   </Link>
                 </Col>
@@ -143,39 +142,39 @@ class BannerPage extends Component {
                 <thead>
                   <tr>
                     <th>
-                      <span>Tên</span>
+                      <span>Họ tên</span>
                     </th>
                     <th>
-                      <span>Mã</span>
+                      <span>Tài khoản</span>
                     </th>
 
                     <th>
-                      <span>Link</span>
+                      <span>Email</span>
                     </th>
                     <th>
-                      <span>Ảnh</span>
+                      <span>Số điện thoại</span>
                     </th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  { listBanners && Object.keys(listBanners).length > 0 &&
-                    listBanners.map((props, key) => {
+                  { listAccounts && Object.keys(listAccounts).length > 0 &&
+                    listAccounts.map((props, key) => {
                       return (
                         <tr key={key}>
-                          <td>{props.name}</td>
-                          <td> {props.code} </td>
-                          <td> {props.link}</td>
-                          <td> <img src={props.img} height="80"/></td>
+                          <td>{props.fullname}</td>
+                          <td> {props.account} </td>
+                          <td> {props.email}</td>
+                          <td> {props.mobile}</td>
                           <td className="text-right">
                             <Link
-                              to={"/admin-page/sua-banner/" + props.banner_id}
+                              to={"/admin-page/sua-account/" + props.account_id}
                             >
                               <Button className="btn-simple btn-icon btn btn-info btn-sm">
                                 <i className="fas fa-pen" />
                               </Button>
                             </Link>
-                            <Button className="btn-simple btn-icon btn btn-info btn-sm" onClick={()=> this.handleDelete(props.banner_id)}>
+                            <Button className="btn-simple btn-icon btn btn-info btn-sm" onClick={()=> this.handleDelete(props.account_id)}>
                                 <i className="fas fa-trash" />
                               </Button>
                           </td>
@@ -193,17 +192,17 @@ class BannerPage extends Component {
 }
 const mapStateToProps = state => {
   return {
-    listBanners: state.bannerReducer.listBanner
+    listAccounts: state.accountReducer.listAccount
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getListBanner: () => {
-      dispatch(actGetListBanner());
+    getListAccount: () => {
+      dispatch(actGetListAccount());
     },
-    deleteBanner: (banner_id)=>{
-      dispatch(actDeleteBannerRequest(banner_id));
+    deleteAccount: (account_id)=>{
+      dispatch(actDeleteAccountRequest(account_id));
     }
   };
 };
@@ -211,10 +210,11 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BannerPage);
-BannerPage.propTypes = {
+)(AccountPage);
+AccountPage.propTypes = {
   data: PropTypes.object
 };
-BannerPage.defaultProps = {
+AccountPage.defaultProps = {
   data: {}
 };
+

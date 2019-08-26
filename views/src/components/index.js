@@ -7,6 +7,7 @@ import Pagination from "./Pagination/Pagination";
 import Button from "./CustomButton/Button";
 import Statistics from "./Statistics/Statistics";
 import MaterialInputText from "./MaterialInputs/MaterialInputText";
+import MaterialSelect from "./MaterialInputs/MaterialSelect";
 export {
   Footer,
   Header,
@@ -16,5 +17,6 @@ export {
   Pagination,
   Button,
   Statistics,
-  MaterialInputText
+  MaterialInputText,
+  MaterialSelect
 };
