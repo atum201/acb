@@ -10,6 +10,10 @@ import EventCreate from "views/AdminPage/EventPage/EventCreate.jsx";
 import AccountPage from "views/AdminPage/AccountPage/AccountPage.jsx";
 import AccountCreate from "views/AdminPage/AccountPage/AccountCreate.jsx";
 
+// import NewsPage from "views/AdminPage/NewsPage/NewsPage.jsx";
+import NewsCreate from "views/AdminPage/NewsPage/NewsCreate.jsx";
+
+
 
 import GamePage from "views/AdminPage/GamePage/GamePage.jsx";
 import GameCreate from "views/AdminPage/GamePage/GameCreate.jsx";
@@ -28,7 +32,7 @@ var dashRoutes = [
   //Enterprise
   {
     path: "/admin-page/danh-sach-enterprise",
-    name: "Danh sách enterprise",
+    name: "Danh sách doanh nghiệp",
     icon: "fas fa-image",
     component: EnterprisePage
   },
@@ -75,7 +79,7 @@ var dashRoutes = [
   //Account
   {
     path: "/admin-page/danh-sach-account",
-    name: "Danh sách account",
+    name: "Danh sách tài khoản",
     icon: "fas fa-image",
     component: AccountPage
   },
@@ -126,96 +130,120 @@ var dashRoutes = [
     exact: true,
     component: EnterpriseCreate
   },
+
+  //News
+  // {
+  //   path: "/admin-page/danh-sach-news",
+  //   name: "Danh sách news",
+  //   icon: "fas fa-image",
+  //   component: NewsPage
+  // },
   {
-    path: "/admin-page/danh-sach-tro-choi",
-    name: "Danh sách trò chơi",
-    icon: "fas fa-gamepad",
-    component: GamePage
-  },
-  {
-    path: "/admin-page/xem-chi-tiet-tro-choi/:id",
-    name: "Xem chi tiết trò chơi",
-    icon: "fas fa-gamepad",
+    path: "/admin-page/sua-news/:news_id",
+    name: "Sửa news",
+    icon: "fas fa-image",
     invisible: true,
     exact: true,
-    component: GameView
+    component: NewsCreate
   },
   {
-    path: "/admin-page/them-tro-choi",
-    name: "Thêm trò chơi",
+    path: "/admin-page/them-news",
+    name: "Thêm news",
     icon: "fas fa-user-plus",
     invisible: true,
     exact: true,
-    component: GameCreate
+    component: NewsCreate
   },
-  {
-    path: "/admin-page/sua-tro-choi/:id",
-    name: "Sửa trò chơi",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: GameCreate
-  },
-  {
-    path: "/admin-page/danh-sach-cau-hoi/:id",
-    name: "Danh sách câu hỏi",
-    icon: "fas fa-question-circle",
-    invisible: true,
-    exact: true,
-    component: QuestionPage
-  },
-  {
-    path: "/admin-page/them-cau-hoi/:id",
-    name: "Thêm câu hỏi",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: QuestionCreate
-  },
-  {
-    path: "/admin-page/sua-cau-hoi/:id",
-    name: "Sửa câu hỏi",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: QuestionCreate
-  },
-  {
-    path: "/admin-page/xem-cau-hoi/:id",
-    name: "Xem câu hỏi",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: QuestionView
-  },
-  {
-    path: "/admin-page/danh-sach-nguoi-choi",
-    name: "Danh sách người chơi",
-    icon: "fas fa-users",
-    component: UserPage
-  },
-  {
-    path: "/admin-page/xem-lich-su-nguoi-choi/:id",
-    name: "Lịch sử người chơi",
-    invisible: true,
-    exact: true,
-    icon: "fas fa-users",
-    component: UserPageView
-  },
-  {
-    path: "/admin-page/thong-tin-cai-dat",
-    name: "Thông tin và cài đặt",
-    icon: "fas fa-edit",
-    component: SetupInfo
-  },
-  {
-    path: "/admin-page/sua-thong-tin-cai-dat",
-    name: "Sửa thông tin và cài đặt",
-    icon: "fas fa-edit",
-    invisible: true,
-    exact: true,
-    component: SetupInfoUpdate
-  },
+  // {
+  //   path: "/admin-page/danh-sach-tro-choi",
+  //   name: "Danh sách trò chơi",
+  //   icon: "fas fa-gamepad",
+  //   component: GamePage
+  // },
+  // {
+  //   path: "/admin-page/xem-chi-tiet-tro-choi/:id",
+  //   name: "Xem chi tiết trò chơi",
+  //   icon: "fas fa-gamepad",
+  //   invisible: true,
+  //   exact: true,
+  //   component: GameView
+  // },
+  // {
+  //   path: "/admin-page/them-tro-choi",
+  //   name: "Thêm trò chơi",
+  //   icon: "fas fa-user-plus",
+  //   invisible: true,
+  //   exact: true,
+  //   component: GameCreate
+  // },
+  // {
+  //   path: "/admin-page/sua-tro-choi/:id",
+  //   name: "Sửa trò chơi",
+  //   icon: "fas fa-user-plus",
+  //   invisible: true,
+  //   exact: true,
+  //   component: GameCreate
+  // },
+  // {
+  //   path: "/admin-page/danh-sach-cau-hoi/:id",
+  //   name: "Danh sách câu hỏi",
+  //   icon: "fas fa-question-circle",
+  //   invisible: true,
+  //   exact: true,
+  //   component: QuestionPage
+  // },
+  // {
+  //   path: "/admin-page/them-cau-hoi/:id",
+  //   name: "Thêm câu hỏi",
+  //   icon: "fas fa-user-plus",
+  //   invisible: true,
+  //   exact: true,
+  //   component: QuestionCreate
+  // },
+  // {
+  //   path: "/admin-page/sua-cau-hoi/:id",
+  //   name: "Sửa câu hỏi",
+  //   icon: "fas fa-user-plus",
+  //   invisible: true,
+  //   exact: true,
+  //   component: QuestionCreate
+  // },
+  // {
+  //   path: "/admin-page/xem-cau-hoi/:id",
+  //   name: "Xem câu hỏi",
+  //   icon: "fas fa-user-plus",
+  //   invisible: true,
+  //   exact: true,
+  //   component: QuestionView
+  // },
+  // {
+  //   path: "/admin-page/danh-sach-nguoi-choi",
+  //   name: "Danh sách người chơi",
+  //   icon: "fas fa-users",
+  //   component: UserPage
+  // },
+  // {
+  //   path: "/admin-page/xem-lich-su-nguoi-choi/:id",
+  //   name: "Lịch sử người chơi",
+  //   invisible: true,
+  //   exact: true,
+  //   icon: "fas fa-users",
+  //   component: UserPageView
+  // },
+  // {
+  //   path: "/admin-page/thong-tin-cai-dat",
+  //   name: "Thông tin và cài đặt",
+  //   icon: "fas fa-edit",
+  //   component: SetupInfo
+  // },
+  // {
+  //   path: "/admin-page/sua-thong-tin-cai-dat",
+  //   name: "Sửa thông tin và cài đặt",
+  //   icon: "fas fa-edit",
+  //   invisible: true,
+  //   exact: true,
+  //   component: SetupInfoUpdate
+  // },
   {
     path: "/admin-page/quan-tri-vien",
     name: "Tài khoản Quản Trị",
