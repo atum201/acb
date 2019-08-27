@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  CardFooter,
   Table,
   Col,
   Row
@@ -19,6 +20,8 @@ import { formatStringToTime } from "../../../utils/formatDate";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import getUrlParam from "utils/getUrlParam";
+import Pagination from "../../../components/Pagination/Pagination";
 // import { socketGlobal } from "../../../utils/instanceSocket";
 import renderStatus from "../../../utils/renderBookingStatus.jsx";
 import { renderErrorSever } from "../../../utils/renderError";
@@ -30,14 +33,21 @@ class EnterprisePage extends Component {
     super(props);
     this.state = {
       alert: "",
-      openning: false
+      openning: false,
+      page:1
     };
+    this.getListEnterprisePagging = this.getListEnterprisePagging.bind(this);
   }
   componentDidMount() {
-    this.getListEnterprise();
+  	const page = getUrlParam()["page"];
+    this.getListEnterprise({page});
   }
-  getListEnterprise() {
-    this.props.getListEnterprise();
+  getListEnterprisePagging(value) {
+  	const page = value;
+    this.getListEnterprise({page});
+  }
+  getListEnterprise(query) {
+    this.props.getListEnterprise(query);
   }
   _showError(messageErrorSV) {
     this.setState({
@@ -55,6 +65,7 @@ class EnterprisePage extends Component {
     this.props.deleteEnterprise(e);
   }
   _hideAlert(){
+  	const page = getUrlParam()["page"];
     this.props.getListEnterprise();
     this.setState({ alert: "" });
   };
@@ -119,7 +130,7 @@ class EnterprisePage extends Component {
         <div className="content">
           <Card className="card-apartment-table">
             <CardHeader>
-              <CardTitle type="h5">Danh sách enterprise</CardTitle>
+              <CardTitle type="h5">Danh sách doanh nghiệp</CardTitle>
               <Row>
                 <Col md={"3"} />
                 <Col md={"3"} />
@@ -131,7 +142,7 @@ class EnterprisePage extends Component {
                       style={{ width: "200px" }}
                       className="btn-customadd"
                     >
-                      <i className="fas fa-gamepad" /> Tạo Enterprise Mới
+                      <i className="fas fa-gamepad" /> Tạo doanh nghiệp
                     </Button>
                   </Link>
                 </Col>
@@ -157,8 +168,8 @@ class EnterprisePage extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  { listEnterprises && Object.keys(listEnterprises).length > 0 &&
-                    listEnterprises.map((props, key) => {
+                  { listEnterprises.data && Object.keys(listEnterprises).length > 0 &&
+                    listEnterprises.data.docs.map((props, key) => {
                       return (
                         <tr key={key}>
                           <td>{props.name}</td>
@@ -183,6 +194,13 @@ class EnterprisePage extends Component {
                 </tbody>
               </Table>
             </CardBody>
+            <CardFooter className="text-right">
+              <Pagination
+                page={listEnterprises.data ? listEnterprises.data.page : 1}
+                totalPages={listEnterprises.data ? listEnterprises.data.totalPages : 1}
+                getListByPage={this.getListEnterprisePagging}
+              />
+            </CardFooter>
           </Card>
         </div>
       </div>
@@ -197,8 +215,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getListEnterprise: () => {
-      dispatch(actGetListEnterprise());
+    getListEnterprise: (query) => {
+      query = query || {page:1}
+      console.log(query)
+      dispatch(actGetListEnterprise(query));
     },
     deleteEnterprise: (enterprise_id)=>{
       dispatch(actDeleteEnterpriseRequest(enterprise_id));

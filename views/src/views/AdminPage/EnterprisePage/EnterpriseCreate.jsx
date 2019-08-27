@@ -65,21 +65,17 @@ class EnterpriseCreate extends Component {
           errorMessage: ""
         },
         {
-          name: "status",
-          value: "",
-          error: false,
-          errorMessage: ""
-        },
-        {
           name: "introdution",
           value: "",
           error: false,
           errorMessage: ""
         }
       ],
+      file: "",
+      fileUpload: "",
       isEdit: window.location.pathname.split("/admin-page/")[1] === "sua-enterprise/" + this.props.match.params.enterprise_id
     };
-
+    this.handleFileOnChange = this.handleFileOnChange.bind(this)
   }
 
 
@@ -106,6 +102,17 @@ class EnterpriseCreate extends Component {
       prop.value = enterprisedetail[prop.name];
       return null;
     });
+  }
+  
+  handleFileOnChange = e => {
+    
+    let img = new FormData();
+    img.append("image",e.target.files[0])
+    // img.append("imgname","ten file anh");
+    this.setState({
+      file: URL.createObjectURL(e.target.files[0]),
+      fileUpload: img,
+    })
   }
 
   handleOnChange = e => {
@@ -154,18 +161,20 @@ class EnterpriseCreate extends Component {
     
 
 
-    const { enterprisecreate,createdAt } = this.state;
+    const { enterprisecreate,createdAt,fileUpload } = this.state;
     if (isValid) {
       if (this.state.isEdit === true) {
         this.props.updateEnterpriseRequest(
           this.props.match.params.enterprise_id,
           ...enterprisecreate.map(a => a.value),
-          createdAt
+          createdAt,
+          fileUpload
         );
       } else {
         this.props.createEnterpriseRequest(
           ...enterprisecreate.map(a => a.value),
-          createdAt
+          createdAt,
+          fileUpload
         );
       }
 
@@ -178,7 +187,7 @@ class EnterpriseCreate extends Component {
     });
   };
   render() {
-    const { enterprisecreate, isEdit, createdAt } = this.state;
+    const { enterprisecreate, isEdit, createdAt,file } = this.state;
     return (
       <div>
         {this.state.alert}
@@ -211,6 +220,17 @@ class EnterpriseCreate extends Component {
                     <Col md="12">
                       <MaterialInputText
                         onChange={this.handleOnChange}
+                        error={enterprisecreate[3].error}
+                        errorMessage={enterprisecreate[3].errorMessage}
+                        name='address'
+                        value={enterprisecreate[3].value}
+                        label="Địa chỉ" />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md="12">
+                      <MaterialInputText
+                        onChange={this.handleOnChange}
                         error={enterprisecreate[4].error}
                         errorMessage={enterprisecreate[4].errorMessage}
                         name='phone'
@@ -228,6 +248,76 @@ class EnterpriseCreate extends Component {
                         name='email'
                         value={enterprisecreate[5].value}
                         label="Email" />
+                    </Col>
+                  </Row>
+                  <Row className="mt-3">
+                    <Col md="6">
+                      <Label>Ảnh đại diện</Label>
+                      <Input onChange={this.handleFileOnChange} type="file"/>
+                    </Col>
+                    <Col md="6">
+                      <img src={enterprisecreate[2].value||file} height="80" />
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col md="12">
+                        <Label>Giới thiệu</Label>
+                        <p className="errorMessageUI">{enterprisecreate[6].errorMessage}</p>
+                        {isEdit&&enterprisecreate[6].value &&
+                          <Editor
+                          initialValue={enterprisecreate[6].value}
+                          apiKey='yrnx9rhrf39887mo92nv8ijxs8luamymtbxjmr2j62rbu4g7'
+                          init={{
+                            height: 300,
+                            plugins: 'link code lists',
+                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | numlist bullist'
+                          }}
+                          
+                          onChange={ ( e ) => {
+                            const data = e.target.getContent();
+                            const enterprisecreate = this.state.enterprisecreate;
+                            enterprisecreate.map(prop => {
+                              if (prop.name === "introdution") {
+                                prop.value =data===""?" ":data;
+                                prop.error = false;
+                                prop.errorMessage = "";
+                                return prop;
+                              }
+                              return prop;
+                            });
+                            this.setState({
+                              enterprisecreate
+                            });
+                        } }
+                         />
+                        }                       
+                        {!isEdit&&
+                          <Editor
+                          initialValue={enterprisecreate[6].value}
+                          apiKey='yrnx9rhrf39887mo92nv8ijxs8luamymtbxjmr2j62rbu4g7'
+                          init={{
+                            plugins: 'link code lists',
+                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | numlist bullist'
+                          }}
+                          onChange={ ( e ) => {
+                            const data = e.target.getContent();
+                            const enterprisecreate = this.state.enterprisecreate;
+                            enterprisecreate.map(prop => {
+                              if (prop.name === "introdution") {
+                                prop.value =data;
+                                prop.error = false;
+                                prop.errorMessage = "";
+                                return prop;
+                              }
+                              return prop;
+                            });
+                            this.setState({
+                              enterprisecreate
+                            });
+                        } }
+                         />
+                        }                       
                     </Col>
                   </Row>
                   
@@ -284,20 +374,20 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     createEnterpriseRequest: (
-      name, user_id, icon, address, phone, email, introdution, createdAt
+      name, user_id, icon, address, phone, email, introdution, createdAt,file
     ) => {
       dispatch(
         actCreateEnterpriseRequest(
-          name, user_id, icon, address, phone, email, introdution, createdAt
+          name, user_id, icon, address, phone, email, introdution, createdAt, file
         )
       );
     },
     updateEnterpriseRequest: (
-      enterprise_id, name, user_id, icon, address, phone, email, introdution, createdAt
+      enterprise_id, name, user_id, icon, address, phone, email, introdution, createdAt, file
     ) => {
       dispatch(
         actUpdateEnterpriseRequest(
-          enterprise_id, name, user_id, icon, address, phone, email, introdution, createdAt
+          enterprise_id, name, user_id, icon, address, phone, email, introdution, createdAt, file
         )
       );
     },

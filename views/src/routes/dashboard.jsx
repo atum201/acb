@@ -10,7 +10,7 @@ import EventCreate from "views/AdminPage/EventPage/EventCreate.jsx";
 import AccountPage from "views/AdminPage/AccountPage/AccountPage.jsx";
 import AccountCreate from "views/AdminPage/AccountPage/AccountCreate.jsx";
 
-// import NewsPage from "views/AdminPage/NewsPage/NewsPage.jsx";
+import NewsPage from "views/AdminPage/NewsPage/NewsPage.jsx";
 import NewsCreate from "views/AdminPage/NewsPage/NewsCreate.jsx";
 
 
@@ -38,7 +38,7 @@ var dashRoutes = [
   },
   {
     path: "/admin-page/sua-enterprise/:enterprise_id",
-    name: "Sửa enterprise",
+    name: "Sửa doanh nghiệp",
     icon: "fas fa-image",
     invisible: true,
     exact: true,
@@ -46,11 +46,80 @@ var dashRoutes = [
   },
   {
     path: "/admin-page/them-enterprise",
-    name: "Thêm enterprise",
+    name: "Thêm doanh nghiệp",
     icon: "fas fa-user-plus",
     invisible: true,
     exact: true,
     component: EnterpriseCreate
+  },
+    // News
+  {
+    path: "/admin-page/danh-sach-news",
+    name: "Danh sách tin tức",
+    icon: "fas fa-image",
+    component: NewsPage
+  },
+  {
+    path: "/admin-page/sua-news/:news_id",
+    name: "Sửa tin tức",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: NewsCreate
+  },
+  {
+    path: "/admin-page/them-news",
+    name: "Thêm tin tức",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: NewsCreate
+  },
+  //Account
+  {
+    path: "/admin-page/danh-sach-account",
+    name: "Danh sách tài khoản",
+    icon: "fas fa-image",
+    component: AccountPage
+  },
+  {
+    path: "/admin-page/sua-account/:account_id",
+    name: "Sửa tài khoản",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: AccountCreate
+  },
+  {
+    path: "/admin-page/them-account",
+    name: "Thêm tài khoản",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: AccountCreate
+  },
+  //Event
+  {
+    path: "/admin-page/danh-sach-event",
+    name: "Danh sách sự kiện",
+    icon: "fas fa-image",
+    component: EventPage
+  },
+  {
+    path: "/admin-page/sua-event/:event_id",
+    name: "Sửa sự kiện",
+    icon: "fas fa-image",
+    invisible: true,
+    exact: true,
+    component: EventCreate
+  },
+  {
+    path: "/admin-page/them-event",
+    name: "Thêm sự kiện",
+    icon: "fas fa-user-plus",
+    invisible: true,
+    exact: true,
+    component: EventCreate
   },
   //Banner
   {
@@ -74,85 +143,6 @@ var dashRoutes = [
     invisible: true,
     exact: true,
     component: BannerCreate
-  },
-  
-  //Account
-  {
-    path: "/admin-page/danh-sach-account",
-    name: "Danh sách tài khoản",
-    icon: "fas fa-image",
-    component: AccountPage
-  },
-  {
-    path: "/admin-page/sua-account/:account_id",
-    name: "Sửa account",
-    icon: "fas fa-image",
-    invisible: true,
-    exact: true,
-    component: AccountCreate
-  },
-  {
-    path: "/admin-page/them-account",
-    name: "Thêm account",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: AccountCreate
-  },
-  //Event
-  {
-    path: "/admin-page/danh-sach-event",
-    name: "Danh sách event",
-    icon: "fas fa-image",
-    component: EventPage
-  },
-  {
-    path: "/admin-page/sua-event/:event_id",
-    name: "Sửa event",
-    icon: "fas fa-image",
-    invisible: true,
-    exact: true,
-    component: EventCreate
-  },
-  {
-    path: "/admin-page/them-event",
-    name: "Thêm event",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: EventCreate
-  },
-  {
-    path: "/admin-page/them-enterprise",
-    name: "Thêm enterprise",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: EnterpriseCreate
-  },
-
-  //News
-  // {
-  //   path: "/admin-page/danh-sach-news",
-  //   name: "Danh sách news",
-  //   icon: "fas fa-image",
-  //   component: NewsPage
-  // },
-  {
-    path: "/admin-page/sua-news/:news_id",
-    name: "Sửa news",
-    icon: "fas fa-image",
-    invisible: true,
-    exact: true,
-    component: NewsCreate
-  },
-  {
-    path: "/admin-page/them-news",
-    name: "Thêm news",
-    icon: "fas fa-user-plus",
-    invisible: true,
-    exact: true,
-    component: NewsCreate
   },
   // {
   //   path: "/admin-page/danh-sach-tro-choi",

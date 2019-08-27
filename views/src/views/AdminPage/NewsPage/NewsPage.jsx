@@ -4,6 +4,7 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  CardFooter,
   Table,
   Col,
   Row
@@ -19,6 +20,8 @@ import { formatStringToTime } from "../../../utils/formatDate";
 import { withStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import getUrlParam from "utils/getUrlParam";
+import Pagination from "../../../components/Pagination/Pagination";
 // import { socketGlobal } from "../../../utils/instanceSocket";
 import renderStatus from "../../../utils/renderBookingStatus.jsx";
 import { renderErrorSever } from "../../../utils/renderError";
@@ -30,14 +33,21 @@ class NewsPage extends Component {
     super(props);
     this.state = {
       alert: "",
-      openning: false
+      openning: false,
+      page:1
     };
+    this.getListNewsPagging = this.getListNewsPagging.bind(this);
   }
   componentDidMount() {
-    this.getListNews();
+    const page = getUrlParam()["page"];
+    this.getListNews({page});
   }
-  getListNews() {
-    this.props.getListNews();
+  getListNewsPagging(value) {
+    const page = value;
+    this.getListNews({page});
+  }
+  getListNews(query) {
+    this.props.getListNews(query);
   }
   _showError(messageErrorSV) {
     this.setState({
@@ -55,7 +65,8 @@ class NewsPage extends Component {
     this.props.deleteNews(e);
   }
   _hideAlert(){
-    this.props.getListNews();
+    const page = getUrlParam()["page"];
+    this.props.getListNews({page});
     this.setState({ alert: "" });
   };
   render() {
@@ -142,24 +153,24 @@ class NewsPage extends Component {
                 <thead>
                   <tr>
                     <th>
-                      <span>Tiêu đề</span>
+                      <span>Tên</span>
                     </th>
                     <th>
-                      <span>Chuyên mục</span>
+                      <span>Mã</span>
                     </th>
 
                     <th>
-                      <span>Doanh nghiệp</span>
+                      <span>Link</span>
                     </th>
                     <th>
-                      <span>Ngày tạo</span>
+                      <span>Ảnh</span>
                     </th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  { listNewss && Object.keys(listNewss).length > 0 &&
-                    listNewss.map((props, key) => {
+                  { listNewss.data && Object.keys(listNewss).length > 0 &&
+                    listNewss.data.docs.map((props, key) => {
                       return (
                         <tr key={key}>
                           <td>{props.name}</td>
@@ -184,6 +195,13 @@ class NewsPage extends Component {
                 </tbody>
               </Table>
             </CardBody>
+            <CardFooter className="text-right">
+              <Pagination
+                page={listNewss.data ? listNewss.data.page : 1}
+                totalPages={listNewss.data ? listNewss.data.totalPages : 1}
+                getListByPage={this.getListNewsPagging}
+              />
+            </CardFooter>
           </Card>
         </div>
       </div>
@@ -198,8 +216,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getListNews: () => {
-      dispatch(actGetListNews());
+    getListNews: (query) => {
+      dispatch(actGetListNews(query));
     },
     deleteNews: (news_id)=>{
       dispatch(actDeleteNewsRequest(news_id));

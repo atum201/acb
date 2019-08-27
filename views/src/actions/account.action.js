@@ -79,10 +79,12 @@ export const actGetAccountIDDp = accountDetail => {
 };
 
 //getListAccount
-export const actGetListAccount = () => {
+export const actGetListAccount = (query) => {
   return dispatch => {
-    return callApiCms(`account/list`, "GET").then(res => {
-      dispatch(actGetListAccountDp(res.data.docs));
+    return callApiCms(`account/list?${Object.keys(query).map(function(data){
+        return `${data}=${query[data]}`;
+    }).join('&')}`, "GET").then(res => {
+      dispatch(actGetListAccountDp(res));
     });
   };
 };

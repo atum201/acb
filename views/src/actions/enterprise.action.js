@@ -101,7 +101,8 @@ export const actCreateEnterpriseRequest = (name, user_id, icon, address, phone, 
   return dispatch => {
     if(file){
       return callApiCms('upload/image','POST',file,true)
-        .then(res =>{          
+        .then(res =>{  
+          
           if(res.status == 200){
             // upload file thanh cong
             icon = HOST+res.data.image;
@@ -192,10 +193,12 @@ export const actGetEnterpriseIDDp = enterpriseDetail => {
 };
 
 //getListEnterprise
-export const actGetListEnterprise = () => {
+export const actGetListEnterprise = (query) => {
   return dispatch => {
-    return callApiCms(`enterprise/list`, "GET").then(res => {
-      dispatch(actGetListEnterpriseDp(res.data.docs));
+    return callApiCms(`enterprise/list?${Object.keys(query).map(function(data){
+        return `${data}=${query[data]}`;
+    }).join('&')}`, "GET").then(res => {
+      dispatch(actGetListEnterpriseDp(res));
     });
   };
 };

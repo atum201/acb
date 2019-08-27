@@ -229,7 +229,7 @@ class BannerCreate extends Component {
                             disablePast
                             ampm={false}
                             onChange={this._handleOnChangeDatestart}
-                            label="Thời gian bắt đầu"
+                            label="Ngày tạo"
                             showTodayButton
                             format="yyyy/MM/dd hh:mm"
                           />

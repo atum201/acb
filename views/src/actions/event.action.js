@@ -192,10 +192,12 @@ export const actGetEventIDDp = eventDetail => {
 };
 
 //getListEvent
-export const actGetListEvent = () => {
+export const actGetListEvent = (query) => {
   return dispatch => {
-    return callApiCms(`event/list`, "GET").then(res => {
-      dispatch(actGetListEventDp(res.data.docs));
+    return callApiCms(`event/list?${Object.keys(query).map(function(data){
+        return `${data}=${query[data]}`;
+    }).join('&')}`, "GET").then(res => {
+      dispatch(actGetListEventDp(res));
     });
   };
 };
@@ -219,7 +221,7 @@ export const actDeleteEventRequest = (event_id) => {
           dispatch(actDeleteEventDp(event_id));
         })
         .catch(res => {
-        	const error = res.response.data;
+          const error = res.response.data;
           var messagec = "Đã có lỗi xảy ra xin vui lòng thử lại sau";
           if (error) {
             messagec = renderErrorSever(error.message);

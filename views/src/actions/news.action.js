@@ -192,10 +192,14 @@ export const actGetNewsIDDp = newsDetail => {
 };
 
 //getListNews
-export const actGetListNews = () => {
+export const actGetListNews = (query) => {
+  if(!query)
+    query = {page:1}
   return dispatch => {
-    return callApiCms(`news/list`, "GET").then(res => {
-      dispatch(actGetListNewsDp(res.data.docs));
+    return callApiCms(`news/list?${Object.keys(query).map(function(data){
+        return `${data}=${query[data]}`;
+    }).join('&')}`, "GET").then(res => {
+      dispatch(actGetListNewsDp(res));
     });
   };
 };
